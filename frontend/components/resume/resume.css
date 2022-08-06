@@ -1,0 +1,43 @@
+html,
+body {
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+body {
+    margin: 0;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+.margin-top {
+    margin-top: 16px;
+}
+
+.content {
+    max-width: 980px;
+}
+
+.content,
+.auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row-padding,
+.row-padding > .half,
+.row-padding > .third,
+.row-padding > .twothird,
+.row-padding > .threequarter,
+.row-padding > .quarter,
+.row-padding > .col {
+    padding: 0 8px;
+}
+
+.white, .hover-white:hover {
+    background-color: #fff;
+}
