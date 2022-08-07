@@ -25,22 +25,20 @@ export const Resume = () => {
   const globalContext = React.useContext(GlobalContext);
 
   React.useEffect(() => {
-    console.log('isLoggedIn', globalContext.loggedIn);
+    console.log("isLoggedIn", globalContext.loggedIn);
     const start = () => {
       gapi.client.init({
         clientId: clientId,
-        scope: ""
-      })
+        scope: "",
+      });
     };
 
-    gapi.load('client:auth2', start);
+    gapi.load("client:auth2", start);
   }, []);
 
   return (
     <div>
-      <div>
-        {globalContext.loggedIn ? <Logout/> : <Login/>}
-      </div>
+      <div>{globalContext.loggedIn ? <Logout /> : <Login />}</div>
       <div className="content margin-top" style={{ maxWidth: "1400px" }}>
         <div className="row-padding two-column">
           <div className="third text-align-left">

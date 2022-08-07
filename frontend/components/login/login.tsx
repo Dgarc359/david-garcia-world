@@ -13,7 +13,7 @@ export const Login = () => {
   // const [clientId, setClientId] = React.useState(process.env.GOOGLE_CLIENT_ID!);
   const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
-  // const [isLoggedIn, setIsLoggedIn] = React.useState(false); 
+  // const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
   const globalContext = React.useContext(GlobalContext);
 
