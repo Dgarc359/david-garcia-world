@@ -2,6 +2,8 @@
 
 Repository containing source code for my website!
 
+# Mockup
+The current mockup for the website resides in [figma](https://www.figma.com/proto/idD8LMRQaqnEuDOXbkLSso/David-Garcia-World?node-id=0%3A1)
 
 
 # Copyright Notice
