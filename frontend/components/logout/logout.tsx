@@ -2,7 +2,8 @@ import { GoogleLogout } from "react-google-login";
 import React from "react";
 
 export const Logout = () => {
-  const [clientId, setClientId] = React.useState(process.env.GOOGLE_CLIENT_ID!);
+  // const [clientId, setClientId] = React.useState(process.env.GOOGLE_CLIENT_ID!);
+  const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
   const onSuccess = () => {
     console.log("Log out successful");

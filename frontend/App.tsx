@@ -1,12 +1,24 @@
 import "./App.css";
 import { RouterComponent } from "./components/router/router";
-// import * as dotenv from 'dotenv';
-// dotenv.config();
+import React from "react";
+
+const globalContextVals = {
+  loggedIn: false,
+  themes: {
+    light: {},
+    dark: {},
+  }
+}
+export const GlobalContext = React.createContext(globalContextVals);
 
 function App() {
   return (
     <>
-      <RouterComponent />
+      <GlobalContext.Provider
+        value={globalContextVals}
+      >
+        <RouterComponent />
+      </GlobalContext.Provider>
     </>
   );
 }

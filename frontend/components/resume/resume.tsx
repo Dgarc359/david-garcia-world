@@ -16,13 +16,16 @@ import React from "react";
 import { gapi } from "gapi-script";
 import { Login } from "../login/login";
 import { Logout } from "../logout/logout";
-
-const clientId = process.env.GOOGLE_CLIENT_ID;
+import { GlobalContext } from "../../App";
+// const clientId = process.env.GOOGLE_CLIENT_ID;
+const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
 export const Resume = () => {
   const currentExperienceText = "June 2021 - ";
+  const globalContext = React.useContext(GlobalContext);
 
   React.useEffect(() => {
+    console.log('isLoggedIn', globalContext.loggedIn);
     const start = () => {
       gapi.client.init({
         clientId: clientId,
@@ -35,8 +38,9 @@ export const Resume = () => {
 
   return (
     <div>
-      {/* <Login/>
-      <Logout/> */}
+      <div>
+        {globalContext.loggedIn ? <Logout/> : <Login/>}
+      </div>
       <div className="content margin-top" style={{ maxWidth: "1400px" }}>
         <div className="row-padding two-column">
           <div className="third text-align-left">
