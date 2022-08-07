@@ -12,11 +12,31 @@ import {
   faCertificate,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import React from "react";
+import { gapi } from "gapi-script";
+import { Login } from "../login/login";
+import { Logout } from "../logout/logout";
+
+const clientId = process.env.GOOGLE_CLIENT_ID;
 
 export const Resume = () => {
   const currentExperienceText = "June 2021 - ";
+
+  React.useEffect(() => {
+    const start = () => {
+      gapi.client.init({
+        clientId: clientId,
+        scope: ""
+      })
+    };
+
+    gapi.load('client:auth2', start);
+  }, []);
+
   return (
     <div>
+      {/* <Login/>
+      <Logout/> */}
       <div className="content margin-top" style={{ maxWidth: "1400px" }}>
         <div className="row-padding two-column">
           <div className="third text-align-left">
