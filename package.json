@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "fmt": "yarn prettier .prettierrc.yaml --write ."
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
@@ -15,12 +16,16 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-google-login": "^5.2.2",
     "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
+    "@types/node": "^18.6.4",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.0",
+    "dotenv": "^16.0.1",
+    "prettier": "^2.7.1",
     "typescript": "^4.6.4",
     "vite": "^3.0.0"
   }
