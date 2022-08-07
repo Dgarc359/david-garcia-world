@@ -15,11 +15,19 @@ body {
 }
 
 .margin-top {
-    margin-top: 16px;
+    margin-top: 16px !important;
+}
+
+.margin-bottom {
+    margin-bottom: 16px !important;
 }
 
 .content {
     max-width: 980px;
+}
+
+.center {
+    text-align: center !important;
 }
 
 .content,
@@ -29,15 +37,137 @@ body {
 }
 
 .row-padding,
-.row-padding > .half,
-.row-padding > .third,
-.row-padding > .twothird,
-.row-padding > .threequarter,
-.row-padding > .quarter,
-.row-padding > .col {
+.row-padding>.half,
+.row-padding>.third,
+.row-padding>.twothird,
+.row-padding>.threequarter,
+.row-padding>.quarter,
+.row-padding>.col {
     padding: 0 8px;
 }
 
-.white, .hover-white:hover {
+.white,
+.hover-white:hover {
     background-color: #fff;
+}
+
+.tooltip,
+.display-container {
+    position: relative;
+}
+
+.text-black,
+.hover-text-black:hover {
+    color: #000 !important;
+}
+
+.container,
+.panel {
+    padding: 0.01em 16px;
+}
+
+.display-bottomleft {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.text-teal,
+.hover-text-teal:hover {
+    color: #009688 !important;
+}
+
+.margin-right {
+    margin-right: 16px !important;
+}
+
+.large {
+    font-size: 18px !important;
+}
+
+.text-grey {
+    color: #757575 !important;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0;
+}
+
+.card,
+.card-2 {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.card-4 {
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.12),0 4px 20px 0 rgba(0,0,0,0.19);
+}
+
+.padding-16 {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+}
+
+.xxlarge {
+    font-size: 36px !important;
+}
+
+.opacity {
+    opacity: 0.60;
+}
+
+b, strong {
+    font-weight: bolder;
+}
+
+.small-margin-bottom {
+    margin-bottom: 1em;
+}
+
+.small-margin-top {
+    margin-top: 2px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+h6 {
+    font-weight: 400;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.teal {
+    color: #fff !important;
+    background-color: #009688 !important;
+}
+
+.round {
+    border-radius: 4px;
+}
+
+.badge,
+.tag {
+    display: inline-block;
+    padding-left: 8px;
+    padding-right: 8px;
+    text-align: center;
+}
+
+.third {
+    width: 33.33333%;
+}
+
+.twothird {
+    width: 66.66666%;    
+}
+
+.two-column {
+    display: flex;
+}
+
+.text-align-left {
+    text-align: left;
 }
