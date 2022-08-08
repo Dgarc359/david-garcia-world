@@ -13,9 +13,9 @@ export const RouterComponent = () => {
     <Router>
       <div>
         <Switch>
-          <Route path="/example" element={ <Example/> } />
-          <Route path="/resume" element={ <Resume/> } />
-          <Route path="/" element={ <LandingPage/> } />
+          <Route path="/example" element={<Example />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/" element={<LandingPage />} />
         </Switch>
       </div>
     </Router>

@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "fmt": "yarn prettier .prettierrc.yaml --write ."
+    "fmt": "yarn prettier .prettierrc.yaml --write .",
+    "fmt:staged": "yarn pretty-quick --staged"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
@@ -27,6 +28,7 @@
     "@vitejs/plugin-react": "^2.0.0",
     "husky": "^8.0.1",
     "prettier": "^2.7.1",
+    "pretty-quick": "^3.1.3",
     "typescript": "^4.6.4",
     "vite": "^3.0.0"
   }
