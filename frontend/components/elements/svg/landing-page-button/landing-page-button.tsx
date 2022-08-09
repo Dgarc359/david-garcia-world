@@ -17,10 +17,11 @@ interface LandingPageButtonProps {
   onHoverStroke: strokes;
   icon: Icons;
   text: string;
+  link: string;
 }
 
 export const LandingPageButton = (props: LandingPageButtonProps) => {
-  const { onHoverStroke, icon, text } = props;
+  const { onHoverStroke, icon, text, link } = props;
 
   const [stroke, setStroke] = React.useState<strokes>("black");
   const [radius, setRadius] = React.useState(43);
@@ -28,14 +29,18 @@ export const LandingPageButton = (props: LandingPageButtonProps) => {
 
   const iconObject = Icons[icon];
 
-  const onMouseEnterCircle = () => {
+  const onMouseEnter = () => {
     setStroke(onHoverStroke);
     setRadius((state) => state * 1.05);
   };
 
-  const onMouseLeaveCircle = () => {
+  const onMouseLeave = () => {
     setStroke("black");
     setRadius(43);
+  };
+
+  const onClick = () => {
+    window.location.href = link;
   };
 
   return (
@@ -47,8 +52,9 @@ export const LandingPageButton = (props: LandingPageButtonProps) => {
         position: "relative",
         // padding: "0em 1em"
       }}
-      onMouseEnter={onMouseEnterCircle}
-      onMouseLeave={onMouseLeaveCircle}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      onClick={onClick}
     >
       <div
         style={{

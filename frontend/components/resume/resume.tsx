@@ -185,8 +185,46 @@ export const Resume = () => {
       </div>
       <footer className="container teal center margin-top">
         <p>Find me on social media!</p>
-        <FontAwesomeIcon icon={faGithub} />{" "}
-        <FontAwesomeIcon icon={faLinkedin} />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            paddingBottom: "1em"
+          }}
+        >
+          <div
+            onClick={() => {
+              window.location.href =
+                "https://github.com/Dgarc359/david-garcia-world";
+            }}
+
+            style={{
+              cursor: "pointer",
+              padding: "0em 0.5em"
+            }}
+          >
+            <FontAwesomeIcon 
+              icon={faGithub} 
+              style={{
+                fontSize: "2em"
+              }}
+            />
+          </div>
+          {" "}
+          <div
+            onClick={() => {
+              window.location.href = "https://www.linkedin.com/in/david-garcia-563543158/";
+            }}
+            style={{
+              cursor: "pointer",
+              padding: "0em 0.5em"
+            }}
+          >
+            <FontAwesomeIcon icon={faLinkedin} style={{
+              fontSize: "2em"
+            }}/>
+          </div>
+        </div>
       </footer>
       <a
         rel="license"

@@ -9,26 +9,29 @@ export const LandingPage = () => {
         justifyContent: "space-around",
       }}
     >
-      
         <LandingPageButton
           onHoverStroke={"seagreen"}
           icon={"file"}
           text="Resume"
+          link="/resume"
         />
         <LandingPageButton
           onHoverStroke={"seagreen"}
           icon={"book"}
           text="Book"
+          link="/book"
         />
         <LandingPageButton
           onHoverStroke={"seagreen"}
           icon={"wrench"}
           text="Projects"
+          link="/projects"
         />
         <LandingPageButton
           onHoverStroke={"seagreen"}
           icon={"user"}
           text="About Me"
+          link="/about-me"
         />
     </div>
   );
