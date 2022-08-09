@@ -3,7 +3,7 @@ import { LandingPageButton } from "../elements/svg/landing-page-button/landing-p
 export const LandingPage = () => {
   return (
     <>
-      <LandingPageButton stroke={"seagreen"} />
+      <LandingPageButton onHoverStroke={"seagreen"} />
     </>
   );
 };
