@@ -1,6 +1,11 @@
 import React from "react";
 import "./landing-page-button.css";
-import { faFile, faBook, faWrench, faUser } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFile,
+  faBook,
+  faWrench,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Icons = {
@@ -10,9 +15,14 @@ const Icons = {
   user: faUser,
 };
 
-
 type Icons = "file" | "book" | "wrench" | "user";
-type strokes =  "white" | "black" | "seagreen" | "dodgerblue" | "indianred" | "violet";
+type strokes =
+  | "white"
+  | "black"
+  | "seagreen"
+  | "dodgerblue"
+  | "indianred"
+  | "violet";
 
 interface LandingPageButtonProps {
   onHoverStroke: strokes;
@@ -23,12 +33,14 @@ interface LandingPageButtonProps {
 
 export const LandingPageButton = (props: LandingPageButtonProps) => {
   const { onHoverStroke, icon, text, link } = props;
-   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  const [stroke, setStroke] = prefersDark ? React.useState<strokes>("white") : React.useState<strokes>("black");
+  const [stroke, setStroke] = prefersDark
+    ? React.useState<strokes>("white")
+    : React.useState<strokes>("black");
   const [radius, setRadius] = React.useState(43);
   const [iconSize, setIconSize] = React.useState(2);
-  
+
   // TODO: bring this up to context object
 
   const iconObject = Icons[icon];
@@ -39,9 +51,7 @@ export const LandingPageButton = (props: LandingPageButtonProps) => {
   };
 
   const onMouseLeave = () => {
-    prefersDark 
-    ? setStroke("white")
-    : setStroke("black");
+    prefersDark ? setStroke("white") : setStroke("black");
     setRadius(43);
   };
 
@@ -102,7 +112,7 @@ export const LandingPageButton = (props: LandingPageButtonProps) => {
           // }}
 
           style={{
-            fontSize: "2em"
+            fontSize: "2em",
           }}
           color={stroke}
         />

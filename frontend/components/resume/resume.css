@@ -37,12 +37,12 @@ body {
 }
 
 .row-padding,
-.row-padding>.half,
-.row-padding>.third,
-.row-padding>.twothird,
-.row-padding>.threequarter,
-.row-padding>.quarter,
-.row-padding>.col {
+.row-padding > .half,
+.row-padding > .third,
+.row-padding > .twothird,
+.row-padding > .threequarter,
+.row-padding > .quarter,
+.row-padding > .col {
   padding: 0 8px;
 }
 
@@ -186,13 +186,11 @@ h6 {
     color: white !important;
   }
 
-
   b {
     color: #1a1a1a !important;
   }
 }
 
-
-h6>svg>path {
-  fill: #009688 !important
+h6 > svg > path {
+  fill: #009688 !important;
 }

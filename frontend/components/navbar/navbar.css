@@ -1,17 +1,15 @@
 @media (prefers-color-scheme: dark) {
-
   .globe > path {
-    color: "white"
+    color: "white";
   }
 }
 
 @media (prefers-color-scheme: light) {
-
   .globe > path {
-    fill: "black"
+    fill: "black";
   }
 
   h6 {
-    color: "black"
+    color: "black";
   }
 }

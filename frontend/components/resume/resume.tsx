@@ -168,7 +168,7 @@ export const Resume = () => {
           style={{
             display: "flex",
             justifyContent: "center",
-            paddingBottom: "1em"
+            paddingBottom: "1em",
           }}
         >
           <div
@@ -176,32 +176,34 @@ export const Resume = () => {
               window.location.href =
                 "https://github.com/Dgarc359/david-garcia-world";
             }}
-
             style={{
               cursor: "pointer",
-              padding: "0em 0.5em"
+              padding: "0em 0.5em",
             }}
           >
-            <FontAwesomeIcon 
-              icon={faGithub} 
+            <FontAwesomeIcon
+              icon={faGithub}
               style={{
-                fontSize: "2em"
+                fontSize: "2em",
               }}
             />
-          </div>
-          {" "}
+          </div>{" "}
           <div
             onClick={() => {
-              window.location.href = "https://www.linkedin.com/in/david-garcia-563543158/";
+              window.location.href =
+                "https://www.linkedin.com/in/david-garcia-563543158/";
             }}
             style={{
               cursor: "pointer",
-              padding: "0em 0.5em"
+              padding: "0em 0.5em",
             }}
           >
-            <FontAwesomeIcon icon={faLinkedin} style={{
-              fontSize: "2em"
-            }}/>
+            <FontAwesomeIcon
+              icon={faLinkedin}
+              style={{
+                fontSize: "2em",
+              }}
+            />
           </div>
         </div>
       </footer>

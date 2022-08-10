@@ -5,18 +5,19 @@ import { gapi } from "gapi-script";
 import { GlobalContext } from "../../App";
 import { Logout } from "../logout/logout";
 import { Login } from "../login/login";
-import './navbar.css'
+import "./navbar.css";
 
 const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
-type strokes =  "white" | "black";
+type strokes = "white" | "black";
 
 export const Navbar = () => {
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-   const [stroke, setStroke] = prefersDark ? React.useState<strokes>("white") : React.useState<strokes>("black");
+  const [stroke, setStroke] = prefersDark
+    ? React.useState<strokes>("white")
+    : React.useState<strokes>("black");
   const globalContext = React.useContext(GlobalContext);
 
   React.useEffect(() => {
-
     console.log("isLoggedIn", globalContext.loggedIn);
     const start = () => {
       gapi.client.init({
@@ -32,7 +33,7 @@ export const Navbar = () => {
     <div
       id="navbar"
       style={{
-        // padding: "1em 0em",
+        padding: "1em 0em",
         // margin: "1em 0em",
         flex: "0 1 auto",
         display: "flex",
@@ -63,7 +64,7 @@ export const Navbar = () => {
         <h6
           style={{
             fontWeight: "bold",
-            color: stroke
+            color: stroke,
           }}
         >
           David Garcia World
