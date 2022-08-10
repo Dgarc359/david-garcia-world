@@ -2,7 +2,7 @@ import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { gapi } from "gapi-script";
-import { GlobalContext } from "../../App";
+// import { useGlobalContext } from "../../App";
 import { Logout } from "../logout/logout";
 import { Login } from "../login/login";
 import "./navbar.css";
@@ -15,10 +15,10 @@ export const Navbar = () => {
   const [stroke, setStroke] = prefersDark
     ? React.useState<strokes>("white")
     : React.useState<strokes>("black");
-  const globalContext = React.useContext(GlobalContext);
+  // const globalContext = React.useContext(useGlobalContext);
 
   React.useEffect(() => {
-    console.log("isLoggedIn", globalContext.loggedIn);
+    // console.log("isLoggedIn", globalContext.loggedIn);
     const start = () => {
       gapi.client.init({
         clientId: clientId,
@@ -76,7 +76,7 @@ export const Navbar = () => {
           padding: "0em 1em",
         }}
       >
-        {globalContext.loggedIn ? <Logout /> : <Login />}
+        {/* {globalContext.loggedIn ? <Logout /> : <Login />} */}
       </div>
     </div>
   );

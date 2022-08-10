@@ -9,6 +9,7 @@ import { Example } from "../example/example";
 import { LandingPage } from "../landing-page/landing-page";
 import { Navbar } from "../navbar/navbar";
 import { UnderConstruction } from "../under-construction/under-construction";
+import { Footer } from "../footer/footer";
 
 export const RouterComponent = () => {
   return (
@@ -30,6 +31,7 @@ export const RouterComponent = () => {
           <Route path="/projects" element={<UnderConstruction />} />
           <Route path="/about-me" element={<UnderConstruction />} />
         </Switch>
+        <Footer />
       </div>
     </Router>
   );

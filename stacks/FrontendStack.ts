@@ -1,0 +1,1 @@
+import { ReactStaticSite, use } from "@serverless-stack/resources";

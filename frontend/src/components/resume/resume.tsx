@@ -162,61 +162,6 @@ export const Resume = () => {
           </div>
         </div>
       </div>
-      <footer className="container teal center margin-top">
-        <p>Find me on social media!</p>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            paddingBottom: "1em",
-          }}
-        >
-          <div
-            onClick={() => {
-              window.location.href =
-                "https://github.com/Dgarc359/david-garcia-world";
-            }}
-            style={{
-              cursor: "pointer",
-              padding: "0em 0.5em",
-            }}
-          >
-            <FontAwesomeIcon
-              icon={faGithub}
-              style={{
-                fontSize: "2em",
-              }}
-            />
-          </div>{" "}
-          <div
-            onClick={() => {
-              window.location.href =
-                "https://www.linkedin.com/in/david-garcia-563543158/";
-            }}
-            style={{
-              cursor: "pointer",
-              padding: "0em 0.5em",
-            }}
-          >
-            <FontAwesomeIcon
-              icon={faLinkedin}
-              style={{
-                fontSize: "2em",
-              }}
-            />
-          </div>
-        </div>
-      </footer>
-      <a
-        rel="license"
-        href="http://creativecommons.org/licenses/by-nc-nd/4.0/"
-      ></a>
-      <br />
-      This work is licensed under a{" "}
-      <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
-        Creative Commons Attribution-NonCommercial-NoDerivatives 4.0
-        International License
-      </a>
     </div>
   );
 };
