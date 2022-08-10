@@ -37,12 +37,12 @@ body {
 }
 
 .row-padding,
-.row-padding > .half,
-.row-padding > .third,
-.row-padding > .twothird,
-.row-padding > .threequarter,
-.row-padding > .quarter,
-.row-padding > .col {
+.row-padding>.half,
+.row-padding>.third,
+.row-padding>.twothird,
+.row-padding>.threequarter,
+.row-padding>.quarter,
+.row-padding>.col {
   padding: 0 8px;
 }
 
@@ -86,7 +86,7 @@ body {
 }
 
 .text-grey {
-  color: #757575 !important;
+  color: #1a1a1a !important;
 }
 
 hr {
@@ -171,4 +171,28 @@ h6 {
 
 .text-align-left {
   text-align: left;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* h5 {
+    color: #213547 !important;
+  } */
+
+  div > p:not(.container .text-grey p) {
+    color: #213547 !important;
+  }
+
+  footer > p {
+    color: white !important;
+  }
+
+
+  b {
+    color: #1a1a1a !important;
+  }
+}
+
+
+h6>svg>path {
+  fill: #009688 !important
 }

@@ -10,8 +10,9 @@ const Icons = {
   user: faUser,
 };
 
+
 type Icons = "file" | "book" | "wrench" | "user";
-type strokes = "black" | "seagreen";
+type strokes =  "white" | "black" | "seagreen" | "dodgerblue" | "indianred" | "violet";
 
 interface LandingPageButtonProps {
   onHoverStroke: strokes;
@@ -22,10 +23,13 @@ interface LandingPageButtonProps {
 
 export const LandingPageButton = (props: LandingPageButtonProps) => {
   const { onHoverStroke, icon, text, link } = props;
+   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-  const [stroke, setStroke] = React.useState<strokes>("black");
+  const [stroke, setStroke] = prefersDark ? React.useState<strokes>("white") : React.useState<strokes>("black");
   const [radius, setRadius] = React.useState(43);
   const [iconSize, setIconSize] = React.useState(2);
+  
+  // TODO: bring this up to context object
 
   const iconObject = Icons[icon];
 
@@ -35,7 +39,9 @@ export const LandingPageButton = (props: LandingPageButtonProps) => {
   };
 
   const onMouseLeave = () => {
-    setStroke("black");
+    prefersDark 
+    ? setStroke("white")
+    : setStroke("black");
     setRadius(43);
   };
 
@@ -90,9 +96,13 @@ export const LandingPageButton = (props: LandingPageButtonProps) => {
       >
         <FontAwesomeIcon
           icon={iconObject}
-          className={`medium icon`}
+          className={`medium`}
+          // style={{
+          //   fontSize: `${iconSize}em`,
+          // }}
+
           style={{
-            fontSize: `${iconSize}em`,
+            fontSize: "2em"
           }}
           color={stroke}
         />

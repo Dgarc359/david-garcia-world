@@ -5,8 +5,10 @@ export const LandingPage = () => {
   return (
     <div
       style={{
+        flex: "1 1 auto",
         display: "flex",
         justifyContent: "space-around",
+        alignItems: "center"
       }}
     >
         <LandingPageButton
@@ -16,19 +18,19 @@ export const LandingPage = () => {
           link="/resume"
         />
         <LandingPageButton
-          onHoverStroke={"seagreen"}
+          onHoverStroke={"dodgerblue"}
           icon={"book"}
           text="Book"
           link="/book"
         />
         <LandingPageButton
-          onHoverStroke={"seagreen"}
+          onHoverStroke={"violet"}
           icon={"wrench"}
           text="Projects"
           link="/projects"
         />
         <LandingPageButton
-          onHoverStroke={"seagreen"}
+          onHoverStroke={"indianred"}
           icon={"user"}
           text="About Me"
           link="/about-me"

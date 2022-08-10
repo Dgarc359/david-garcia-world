@@ -12,7 +12,10 @@ import { Navbar } from "../navbar/navbar";
 export const RouterComponent = () => {
   return (
     <Router>
-      <div>
+      <div className="full-height" style={{
+        display: "flex",
+        flexFlow: "column"
+      }}>
         <Navbar/>
         <Switch>
           <Route path="/example" element={<Example />} />

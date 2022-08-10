@@ -13,11 +13,13 @@ export const GlobalContext = React.createContext(globalContextVals);
 
 function App() {
   return (
-    <>
+    <div
+      className="full-height"
+    >
       <GlobalContext.Provider value={globalContextVals}>
         <RouterComponent />
       </GlobalContext.Provider>
-    </>
+    </div>
   );
 }
 
