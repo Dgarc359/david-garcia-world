@@ -1,6 +1,6 @@
 import { StackContext, Api } from "@serverless-stack/resources";
 
-export function MyStack({ stack }: StackContext) {
+export function ApiStack({ stack }: StackContext) {
   const api = new Api(stack, "api", {
     routes: {
       "GET /": "functions/lambda.handler",
@@ -8,6 +8,8 @@ export function MyStack({ stack }: StackContext) {
   });
 
   stack.addOutputs({
-    ApiEndpoint: api.url
+    ApiEndpoint: api.url,
   });
+
+  return { api };
 }
