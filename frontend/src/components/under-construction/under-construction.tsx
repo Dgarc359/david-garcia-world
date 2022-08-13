@@ -1,4 +1,9 @@
-export const UnderConstruction = () => {
+import { strokes } from "../common";
+import { useColorway } from "../hooks/useColorway";
+
+export const UnderConstruction = (colorway: {primary: strokes}) => {
+  useColorway(colorway.primary, "white");
+
   return (
     <div
       style={{

@@ -11,9 +11,12 @@ import {
   faCalendarAlt,
   faCertificate,
 } from "@fortawesome/free-solid-svg-icons";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import React from "react";
+import { useColorway } from "../hooks/useColorway";
 
 export const Resume = () => {
+  useColorway("teal", "white");
+
   const currentExperienceText = "June 2021 - ";
 
   return (

@@ -1,13 +1,15 @@
 import React, { ReactNode } from "react";
 import { strokes } from "./strokes";
+import { themes } from "./themes";
 
 interface GlobalContextVals {
   loggedIn: (boolean | React.Dispatch<React.SetStateAction<boolean>>)[],
-  themes?: {
-    light: {},
-    dark: {},
-  },
-  currentColor?: [strokes, React.Dispatch<React.SetStateAction<strokes>>]
+  preferredTheme: (themes | React.Dispatch<React.SetStateAction<themes>>)[],
+  // currentPageColorway: [strokes, React.Dispatch<React.SetStateAction<strokes>>]
+  currentPageColorway: {
+    primary: [strokes, React.Dispatch<React.SetStateAction<strokes>>]
+    secondary: [strokes, React.Dispatch<React.SetStateAction<strokes>>]
+  }
 };
 
 export const GlobalContext = React.createContext<null | GlobalContextVals>(null);
@@ -19,11 +21,27 @@ interface Props {
 }
 
 export const GlobalContextProvider = ({children, isLoggedIn }: Props) => {
-  // const [currentColor, setCurrentColor] = React.useState<strokes>(color);
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const [stroke, setStroke] = prefersDark
+    ? React.useState<themes>("white")
+    : React.useState<themes>("black");
+    
   const [loggedIn, setLoggedIn] = React.useState<boolean>(isLoggedIn);
+  const [primaryColorway, setPrimaryColorway] = prefersDark 
+    ? React.useState<strokes>("white")
+    : React.useState<strokes>("black");
+
+  const [secondaryColorway, setSecondaryColorway] = prefersDark
+      ? React.useState<strokes>("black")
+      : React.useState<strokes>("white");
+
   const globalContext: GlobalContextVals = {
-    // currentColor: [currentColor, setCurrentColor]
-    loggedIn: [loggedIn, setLoggedIn]
+    loggedIn: [loggedIn, setLoggedIn],
+    preferredTheme: [stroke, setStroke],
+    currentPageColorway: {
+      primary: [primaryColorway, setPrimaryColorway],
+      secondary: [secondaryColorway, setSecondaryColorway]
+    }
   }
   
   return(

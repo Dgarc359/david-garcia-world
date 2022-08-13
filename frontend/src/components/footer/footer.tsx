@@ -1,11 +1,33 @@
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { GlobalContext } from "../common";
 
 export const Footer = () => {
+  const { currentPageColorway, preferredTheme } = React.useContext(GlobalContext)!;
+
+  // const lightOrDarkMode = preferredTheme[0];
+  // const setPrimaryColorway = currentPageColorway["primary"][1];
+  const currPrimaryColorway = currentPageColorway["primary"][0];
+
+  // const setSecondaryColorway = currentPageColorway["secondary"][1];
+  const currSecondaryColorway = currentPageColorway["secondary"][0];
+  
+  React.useEffect(() => {
+    // if(lightOrDarkMode === "white") {
+    //   setPrimaryColorway("white");
+    //   setSecondaryColorway("black");
+    // } else {
+    //   setPrimaryColorway("black");
+    //   setSecondaryColorway("white");
+    // }
+  }, [preferredTheme]);
+
   return (
     <div id="Footer">
-      <footer className="container teal center margin-top">
+      <footer className="container center margin-top" style={{
+        backgroundColor: currPrimaryColorway
+      }}>
         <div
           style={{
             display: "flex",
@@ -29,6 +51,7 @@ export const Footer = () => {
               style={{
                 fontSize: "2em",
               }}
+              color={currSecondaryColorway}
             />
           </div>{" "}
           <div
@@ -46,6 +69,7 @@ export const Footer = () => {
               style={{
                 fontSize: "2em",
               }}
+              color={currSecondaryColorway}
             />
           </div>
         </div>

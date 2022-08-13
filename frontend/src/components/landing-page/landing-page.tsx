@@ -1,7 +1,21 @@
 import { LandingPageButton } from "../elements/svg/landing-page-button/landing-page-button";
 import "./landing-page.css";
+import React from "react";
+import { GlobalContext } from "../common";
+import { useColorway } from "../hooks/useColorway";
 
 export const LandingPage = () => {
+
+  const { preferredTheme } = React.useContext(GlobalContext)!;
+
+  const lightOrDarkMode = preferredTheme[0];
+
+   if(lightOrDarkMode === "white") {
+      useColorway("white", "black");
+    } else {
+      useColorway("black", "white");
+    }
+
   return (
     <div
       style={{

@@ -2,7 +2,6 @@ import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { gapi } from "gapi-script";
-// import { useGlobalContext } from "../../App";
 import { Logout } from "../logout/logout";
 import { Login } from "../login/login";
 import "./navbar.css";

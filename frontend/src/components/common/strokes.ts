@@ -4,4 +4,5 @@ export type strokes =
   | "seagreen"
   | "dodgerblue"
   | "indianred"
-  | "violet";
+  | "violet"
+  | "teal";

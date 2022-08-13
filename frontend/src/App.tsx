@@ -8,7 +8,7 @@ function App() {
   
   return (
     <div className="full-height" id="App">
-      <GlobalContextProvider isLoggedIn={false}>
+      <GlobalContextProvider loggedInProp={false}>
         <RouterComponent />
       </GlobalContextProvider>
     </div>
