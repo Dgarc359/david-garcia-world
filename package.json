@@ -9,6 +9,7 @@
     "remove": "sst remove",
     "console": "sst console",
     "typecheck": "tsc --noEmit",
+    "dev": "cd frontend && yarn dev",
     "test": "vitest run",
     "fmt:staged": "yarn pretty-quick --staged "
   },

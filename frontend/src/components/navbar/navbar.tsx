@@ -76,6 +76,7 @@ export const Navbar = () => {
           padding: "0em 1em",
         }}
       >
+        <Login />
         {/* {globalContext.loggedIn ? <Logout /> : <Login />} */}
       </div>
     </div>
