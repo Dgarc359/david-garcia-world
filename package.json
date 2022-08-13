@@ -1,35 +1,30 @@
 {
   "name": "david-garcia-world",
+  "version": "1.0.0",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "fmt": "yarn prettier .prettierrc.yaml --write .",
-    "fmt:staged": "yarn pretty-quick --staged"
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.1.2",
-    "@fortawesome/free-brands-svg-icons": "^6.1.2",
-    "@fortawesome/free-solid-svg-icons": "^6.1.2",
-    "@fortawesome/react-fontawesome": "^0.2.0",
-    "gapi-script": "^1.2.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-google-login": "^5.2.2",
-    "react-router-dom": "^6.3.0"
+    "start": "sst start",
+    "build": "sst build",
+    "deploy": "sst deploy",
+    "remove": "sst remove",
+    "console": "sst console",
+    "typecheck": "tsc --noEmit",
+    "dev": "cd frontend && yarn dev",
+    "test": "vitest run",
+    "fmt:staged": "yarn pretty-quick --staged "
   },
   "devDependencies": {
-    "@types/node": "^18.6.4",
-    "@types/react": "^18.0.15",
-    "@types/react-dom": "^18.0.6",
-    "@vitejs/plugin-react": "^2.0.0",
+    "@serverless-stack/cli": "^1.6.10",
+    "@serverless-stack/resources": "^1.6.10",
+    "@tsconfig/node16": "^1.0.3",
+    "aws-cdk-lib": "2.32.0",
     "husky": "^8.0.1",
-    "prettier": "^2.7.1",
     "pretty-quick": "^3.1.3",
-    "typescript": "^4.6.4",
-    "vite": "^3.0.0"
-  }
+    "typescript": "^4.7.4",
+    "vitest": "^0.21.1"
+  },
+  "workspaces": [
+    "services",
+    "frontend"
+  ]
 }

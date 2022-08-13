@@ -4,7 +4,7 @@ import {
   GoogleLoginResponseOffline,
 } from "react-google-login";
 import React from "react";
-import { GlobalContext } from "../../App";
+// import { useGlobalContext } from "../../App";
 // import * as dotenv from "dotenv";
 
 // dotenv.config();
@@ -15,7 +15,7 @@ export const Login = () => {
 
   // const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
-  const globalContext = React.useContext(GlobalContext);
+  // const globalContext = React.useContext(useGlobalContext);
 
   const onSuccess = (
     response: GoogleLoginResponse | GoogleLoginResponseOffline
