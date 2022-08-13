@@ -2,29 +2,32 @@ import React, { ReactNode } from "react";
 import { strokes } from "./strokes";
 
 interface GlobalContextVals {
-  loggedIn?: boolean,
+  loggedIn: (boolean | React.Dispatch<React.SetStateAction<boolean>>)[],
   themes?: {
     light: {},
     dark: {},
   },
-  currentColor: [strokes, React.Dispatch<React.SetStateAction<strokes>>]
+  currentColor?: [strokes, React.Dispatch<React.SetStateAction<strokes>>]
 };
 
-const GlobalContext = React.createContext<null | GlobalContextVals>(null);
+export const GlobalContext = React.createContext<null | GlobalContextVals>(null);
 
 interface Props {
   children?: ReactNode,
-  color: strokes
+  color?: strokes,
+  isLoggedIn: boolean
 }
 
-export const GlobalContextProvider = ({children, color}: Props) => {
-  const [currentColor, setCurrentColor] = React.useState<strokes>(color);
+export const GlobalContextProvider = ({children, isLoggedIn }: Props) => {
+  // const [currentColor, setCurrentColor] = React.useState<strokes>(color);
+  const [loggedIn, setLoggedIn] = React.useState<boolean>(isLoggedIn);
   const globalContext: GlobalContextVals = {
-    currentColor: [currentColor, setCurrentColor]
+    // currentColor: [currentColor, setCurrentColor]
+    loggedIn: [loggedIn, setLoggedIn]
   }
   
   return(
-    <div>
+    <div className="full-height" id="GlobalContext">
       <GlobalContext.Provider
         value={
           globalContext

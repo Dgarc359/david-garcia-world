@@ -1,9 +1,10 @@
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
 
 export const Footer = () => {
   return (
-    <div>
+    <div id="Footer">
       <footer className="container teal center margin-top">
         <div
           style={{

@@ -10,17 +10,20 @@ import { LandingPage } from "../landing-page/landing-page";
 import { Navbar } from "../navbar/navbar";
 import { UnderConstruction } from "../under-construction/under-construction";
 import { Footer } from "../footer/footer";
+import React from "react";
 
 export const RouterComponent = () => {
   return (
-    <Router>
-      <div
+    <div
         className="full-height"
         style={{
           display: "flex",
           flexFlow: "column",
         }}
+        id="router"
       >
+    <Router>
+      
         <Navbar />
         <Switch>
           <Route path="/example" element={<Example />} />
@@ -32,7 +35,8 @@ export const RouterComponent = () => {
           <Route path="/about-me" element={<UnderConstruction />} />
         </Switch>
         <Footer />
-      </div>
+      
     </Router>
+    </div>
   );
 };

@@ -6,19 +6,27 @@ import { gapi } from "gapi-script";
 import { Logout } from "../logout/logout";
 import { Login } from "../login/login";
 import "./navbar.css";
+import { GlobalContext } from "../common";
 
-const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+// @ts-ignore
+const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID; // TODO: this will be migrated to the backend soon anyways
 type strokes = "white" | "black";
 
 export const Navbar = () => {
+  // TODO: migrate this logic to global state
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const [stroke, setStroke] = prefersDark
     ? React.useState<strokes>("white")
     : React.useState<strokes>("black");
-  // const globalContext = React.useContext(useGlobalContext);
+  const {loggedIn} = React.useContext(GlobalContext)!;
+  const isLoggedIn = loggedIn[0];
 
   React.useEffect(() => {
-    // console.log("isLoggedIn", globalContext.loggedIn);
+    console.log(isLoggedIn)
+  }, []);
+
+  React.useEffect(() => {
+    // TODO: This will be a call to the backend, the clientID needs to remain a secret, so we init 
     const start = () => {
       gapi.client.init({
         clientId: clientId,
@@ -76,8 +84,7 @@ export const Navbar = () => {
           padding: "0em 1em",
         }}
       >
-        <Login />
-        {/* {globalContext.loggedIn ? <Logout /> : <Login />} */}
+        {isLoggedIn ? <Logout/> : <Login/>}
       </div>
     </div>
   );
