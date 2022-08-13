@@ -13,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { useColorway } from "../hooks/useColorway";
+import { RevatureWorkExperience } from "./work-experience-components";
 
 export const Resume = () => {
   useColorway("teal", "white");
@@ -93,31 +94,7 @@ export const Resume = () => {
                 />
                 Work Experience
               </h2>
-              <div className="container">
-                <h5
-                  className="opacity small-margin-bottom"
-                  style={{
-                    marginTop: "2px",
-                  }}
-                >
-                  <b>Software Engineer | Revature</b>
-                </h5>
-                <h6 className="text-teal">
-                  <FontAwesomeIcon
-                    icon={faCalendarAlt}
-                    className="margin-right large"
-                  />
-                  {currentExperienceText}
-                  <span className="tag teal round margin-left">Current</span>
-                </h6>
-                <p>
-                  Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel
-                  in deserunt aspernatur est reprehenderit sunt hic. Nulla
-                  tempora soluta ea et odio, unde doloremque repellendus iure,
-                  iste.
-                </p>
-                {/* <hr></hr> */}
-              </div>
+              <RevatureWorkExperience/>
             </div>
             <div className="container card white">
               <h2
