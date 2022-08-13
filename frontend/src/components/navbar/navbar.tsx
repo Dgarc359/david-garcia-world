@@ -12,12 +12,9 @@ const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID; // TODO: this will be mi
 type strokes = "white" | "black";
 
 export const Navbar = () => {
-  // TODO: migrate this logic to global state
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const [stroke, setStroke] = prefersDark
-    ? React.useState<strokes>("white")
-    : React.useState<strokes>("black");
-  const {loggedIn} = React.useContext(GlobalContext)!;
+  const {loggedIn, preferredTheme} = React.useContext(GlobalContext)!;
+  const stroke = preferredTheme[0]!;
+
   const isLoggedIn = loggedIn[0];
 
   React.useEffect(() => {

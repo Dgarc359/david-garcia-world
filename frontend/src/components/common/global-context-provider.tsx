@@ -4,8 +4,7 @@ import { themes } from "./themes";
 
 interface GlobalContextVals {
   loggedIn: (boolean | React.Dispatch<React.SetStateAction<boolean>>)[],
-  preferredTheme: (themes | React.Dispatch<React.SetStateAction<themes>>)[],
-  // currentPageColorway: [strokes, React.Dispatch<React.SetStateAction<strokes>>]
+  preferredTheme: [themes, React.Dispatch<React.SetStateAction<themes>>],
   currentPageColorway: {
     primary: [strokes, React.Dispatch<React.SetStateAction<strokes>>]
     secondary: [strokes, React.Dispatch<React.SetStateAction<strokes>>]
