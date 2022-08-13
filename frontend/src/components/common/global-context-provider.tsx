@@ -3,7 +3,7 @@ import { strokes } from "./strokes";
 import { themes } from "./themes";
 
 interface GlobalContextVals {
-  loggedIn: (boolean | React.Dispatch<React.SetStateAction<boolean>>)[],
+  loggedIn: [boolean, React.Dispatch<React.SetStateAction<boolean>>],
   preferredTheme: [themes, React.Dispatch<React.SetStateAction<themes>>],
   currentPageColorway: {
     primary: [strokes, React.Dispatch<React.SetStateAction<strokes>>]
