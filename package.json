@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit",
     "dev": "cd frontend && yarn dev",
     "test": "vitest run",
-    "fmt:staged": "yarn pretty-quick --staged "
+    "fmt:staged": "yarn pretty-quick --staged",
+    "fmt": "yarn pretty-quick"
   },
   "devDependencies": {
     "@serverless-stack/cli": "^1.6.10",
