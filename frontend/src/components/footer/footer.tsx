@@ -6,25 +6,19 @@ import { GlobalContext } from "../common";
 export const Footer = () => {
   const { currentPageColorway, preferredTheme } = React.useContext(GlobalContext)!;
 
-  // const lightOrDarkMode = preferredTheme[0];
-  // const setPrimaryColorway = currentPageColorway["primary"][1];
   const currPrimaryColorway = currentPageColorway["primary"][0];
 
-  // const setSecondaryColorway = currentPageColorway["secondary"][1];
   const currSecondaryColorway = currentPageColorway["secondary"][0];
   
   React.useEffect(() => {
-    // if(lightOrDarkMode === "white") {
-    //   setPrimaryColorway("white");
-    //   setSecondaryColorway("black");
-    // } else {
-    //   setPrimaryColorway("black");
-    //   setSecondaryColorway("white");
-    // }
   }, [preferredTheme]);
 
   return (
-    <div id="Footer">
+    <div id="Footer"
+      style={{
+        padding: "0em 1.5em"
+      }}
+    >
       <footer className="container center margin-top" style={{
         backgroundColor: currPrimaryColorway
       }}>
