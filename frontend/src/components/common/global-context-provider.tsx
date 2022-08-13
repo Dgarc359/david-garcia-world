@@ -15,11 +15,11 @@ export const GlobalContext = React.createContext<null | GlobalContextVals>(null)
 
 interface Props {
   children?: ReactNode,
-  color?: strokes,
-  isLoggedIn: boolean
+  isLoggedIn: boolean,
 }
 
-export const GlobalContextProvider = ({children, isLoggedIn }: Props) => {
+export const GlobalContextProvider = (props: Props) => {
+  const {children, isLoggedIn} = props;
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const [stroke, setStroke] = prefersDark
     ? React.useState<themes>("white")
