@@ -4,24 +4,20 @@ import {
   GoogleLoginResponseOffline,
 } from "react-google-login";
 import React from "react";
-// import { useGlobalContext } from "../../App";
-// import * as dotenv from "dotenv";
-
-// dotenv.config();
+import { GlobalContext } from "../common";
 
 export const Login = () => {
-  // const [clientId, setClientId] = React.useState(process.env.GOOGLE_CLIENT_ID!);
+  //@ts-ignore
   const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
-  // const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-
-  // const globalContext = React.useContext(useGlobalContext);
+  
+  const {loggedIn} = React.useContext(GlobalContext)!;
+  const setIsLoggedIn = loggedIn[1];
 
   const onSuccess = (
     response: GoogleLoginResponse | GoogleLoginResponseOffline
   ) => {
-    // globalContext.loggedIn = false;
-    // setIsLoggedIn(true);
+    setIsLoggedIn(true);
   };
 
   const onFailure = (response: unknown) => {

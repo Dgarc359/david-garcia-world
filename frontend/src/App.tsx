@@ -1,16 +1,16 @@
 import "./App.css";
 import { RouterComponent } from "./components/router/router";
 import React from "react";
-import { GlobalContextProvider, strokes } from "./components/common";
+import { GlobalContextProvider } from "./components/common";
 
 function App() {
-  const [color, setColor] = React.useState<strokes>("white");
+  // const [color, setColor] = React.useState<strokes>("white");
   
   return (
-    <div className="full-height">
-      {/* <GlobalContextProvider color={color}> */}
+    <div className="full-height" id="App">
+      <GlobalContextProvider isLoggedIn={false}>
         <RouterComponent />
-      {/* </GlobalContextProvider> */}
+      </GlobalContextProvider>
     </div>
   );
 }

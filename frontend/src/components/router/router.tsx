@@ -13,26 +13,29 @@ import { Footer } from "../footer/footer";
 
 export const RouterComponent = () => {
   return (
-    <Router>
-      <div
+    <div
         className="full-height"
         style={{
           display: "flex",
           flexFlow: "column",
         }}
+        id="router"
       >
+    <Router>
+      
         <Navbar />
         <Switch>
           <Route path="/example" element={<Example />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/" element={<LandingPage />} />
 
-          <Route path="/book" element={<UnderConstruction />} />
-          <Route path="/projects" element={<UnderConstruction />} />
-          <Route path="/about-me" element={<UnderConstruction />} />
+          <Route path="/book" element={<UnderConstruction primary="dodgerblue" />} />
+          <Route path="/projects" element={<UnderConstruction primary="violet" />} />
+          <Route path="/about-me" element={<UnderConstruction primary="indianred" />} />
         </Switch>
         <Footer />
-      </div>
+      
     </Router>
+    </div>
   );
 };
