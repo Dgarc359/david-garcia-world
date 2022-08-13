@@ -13,7 +13,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { useColorway } from "../hooks/useColorway";
-import { RevatureWorkExperience } from "./work-experience-components";
+import { RevatureWorkExperience } from "./work-experience";
+import { RevatureEducation, FIUEducation } from "./education";
 
 export const Resume = () => {
   useColorway("teal", "white");
@@ -107,37 +108,9 @@ export const Resume = () => {
                 />
                 Education
               </h2>
-              <div className="container">
-                <h5 className="opacity small-margin-bottom small-margin-top">
-                  <b>Revature Coding Bootcamp</b>
-                </h5>
-                <h6 className="text-teal">
-                  <FontAwesomeIcon
-                    icon={faCalendarAlt}
-                    className="margin-right"
-                  />
-                  2021
-                </h6>
-                <p>Full Stack Java / React bootcamp</p>
-              </div>
+                <RevatureEducation/>
               <hr />
-              <div className="container">
-                <h5 className="opacity small-margin-bottom small-margin-top">
-                  <b>
-                    Florida International University | Business Administration -
-                    Marketing
-                  </b>
-                </h5>
-                <h6 className="text-teal">
-                  <FontAwesomeIcon
-                    icon={faCalendarAlt}
-                    className="margin-right"
-                  />
-                  2020
-                </h6>
-                <p>Bachelor's Degree</p>
-                {/* <hr/> */}
-              </div>
+                <FIUEducation/>
             </div>
           </div>
         </div>
