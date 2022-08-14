@@ -1,10 +1,10 @@
 import { ReactStaticSite, use } from "@serverless-stack/resources";
 import { RemovalPolicy } from "aws-cdk-lib";
 import { Bucket } from "aws-cdk-lib/aws-s3";
-import { ApiStack } from "./MyStack";
+import { ApiStack } from "./ApiStack";
 
 export const FrontendStack = ({ stack, app }: any) => {
-  const { api } = use(ApiStack);
+  // const { api } = use(ApiStack);
 
   const site = new ReactStaticSite(stack, "ReactSite", {
     path: "frontend",
