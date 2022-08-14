@@ -5,7 +5,7 @@ import { gapi } from "gapi-script";
 import { Logout } from "../logout/logout";
 import { Login } from "../login/login";
 import "./navbar.css";
-import { GlobalContext } from "../common";
+import { GlobalContext } from "../../common";
 
 // @ts-ignore
 const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID; // TODO: this will be migrated to the backend soon anyways

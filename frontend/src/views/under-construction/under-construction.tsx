@@ -1,5 +1,5 @@
-import { strokes } from "../common";
-import { useColorway } from "../hooks";
+import { strokes } from "../../common";
+import { useColorway } from "../../hooks";
 
 export const UnderConstruction = (colorway: {primary: strokes}) => {
   useColorway(colorway.primary, "white");
@@ -13,6 +13,7 @@ export const UnderConstruction = (colorway: {primary: strokes}) => {
         justifyContent: "center",
         userSelect: "none",
       }}
+      id="ConstructionView"
     >
       <h6
         style={{

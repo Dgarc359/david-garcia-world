@@ -164,10 +164,6 @@ h6 {
 }
 
 @media (prefers-color-scheme: dark) {
-  /* h5 {
-    color: #213547 !important;
-  } */
-
   div > p:not(.container .text-grey p) {
     color: #213547 !important;
   }
@@ -177,10 +173,6 @@ h6 {
   }
 
   b {
-    color: #1a1a1a !important;
-  }
-
-  li {
     color: #1a1a1a !important;
   }
 }

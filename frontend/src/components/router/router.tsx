@@ -1,15 +1,14 @@
 import {
   BrowserRouter as Router,
   Route,
-  Link,
   Routes as Switch,
 } from "react-router-dom";
-import { Resume } from "../resume/resume";
+import { Resume, LandingPage, UnderConstruction, Projects } from "../../views";
 import { Example } from "../example/example";
-import { LandingPage } from "../landing-page/landing-page";
 import { Navbar } from "../navbar/navbar";
-import { UnderConstruction } from "../under-construction/under-construction";
 import { Footer } from "../footer/footer";
+import { DavidGarciaWorld } from "../../views/projects/views/davidgarcia-world";
+import { ProjectChoices } from "../../views/projects/views/project-choices";
 
 export const RouterComponent = () => {
   return (
@@ -29,9 +28,13 @@ export const RouterComponent = () => {
           <Route path="/resume" element={<Resume />} />
           <Route path="/" element={<LandingPage />} />
 
-          <Route path="/book" element={<UnderConstruction primary="dodgerblue" />} />
-          <Route path="/projects" element={<UnderConstruction primary="violet" />} />
-          <Route path="/about-me" element={<UnderConstruction primary="indianred" />} />
+          <Route path="/projects" element={<Projects/>}>
+            <Route index element={<ProjectChoices/>}/>
+            <Route path="choices" element={<ProjectChoices/>}/>
+            <Route path="davidgarcia-world" element={<DavidGarciaWorld/>}/>
+          </Route> 
+
+          <Route path="*" element={<UnderConstruction primary="black" />} />      
         </Switch>
         <Footer />
       

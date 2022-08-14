@@ -4,6 +4,7 @@ import { themes } from "./themes";
 
 interface GlobalContextVals {
   loggedIn: [boolean, React.Dispatch<React.SetStateAction<boolean>>],
+  prefersDark: boolean;
   preferredTheme: [themes, React.Dispatch<React.SetStateAction<themes>>],
   currentPageColorway: {
     primary: [strokes, React.Dispatch<React.SetStateAction<strokes>>]
@@ -36,6 +37,7 @@ export const GlobalContextProvider = (props: Props) => {
 
   const globalContext: GlobalContextVals = {
     loggedIn: [loggedIn, setLoggedIn],
+    prefersDark: prefersDark,
     preferredTheme: [stroke, setStroke],
     currentPageColorway: {
       primary: [primaryColorway, setPrimaryColorway],

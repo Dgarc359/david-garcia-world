@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
+import { ResumeLi } from "../common/resume-li";
 
 export const RevatureWorkExperience = () => {
   const currentExperienceText = "June 2021 - "; 
@@ -26,27 +27,27 @@ export const RevatureWorkExperience = () => {
       </h6>
       <p>
         <ul>
-          <li>
+          <ResumeLi>
             Support Observability Implementations team by finding root cause
             issues to common AWS Synthetic Canary errors and writing 
             documentation to guide future error resolution
-          </li>
-          <li>
+          </ResumeLi>
+          <ResumeLi>
             Leveraged D3 to create custom data visualizations including Left to
             Right trees and Force Directed Network Graphs, integrated with React
-          </li>
-          <li>
+          </ResumeLi>
+          <ResumeLi>
             Create AWS Cloud Infrastructure design documents, 
             and analyze cost on designed infrastructure to inform critical
             Infrastructure design decisions.
-          </li>
-          <li>
+          </ResumeLi>
+          <ResumeLi>
             Developed a standard for our teams testing workflow, including
             laying the foundation for testing best practices, developing
             foundational tests leveraging jest to serve as an example,
             and increasing our code coverage from 0% to 40% across three of our
             main product's repositories.
-          </li>
+          </ResumeLi>
         </ul>
         {/* Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel
         in deserunt aspernatur est reprehenderit sunt hic. Nulla

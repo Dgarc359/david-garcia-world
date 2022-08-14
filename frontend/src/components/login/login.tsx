@@ -4,7 +4,7 @@ import {
   GoogleLoginResponseOffline,
 } from "react-google-login";
 import React from "react";
-import { GlobalContext } from "../common";
+import { GlobalContext } from "../../common";
 
 export const Login = () => {
   //@ts-ignore

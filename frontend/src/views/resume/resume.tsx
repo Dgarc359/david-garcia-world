@@ -12,7 +12,7 @@ import {
   faCertificate,
 } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
-import { useColorway } from "../hooks";
+import { useColorway } from "../../hooks";
 import { RevatureWorkExperience } from "./work-experience";
 import { RevatureEducation, FIUEducation } from "./education";
 
@@ -22,7 +22,7 @@ export const Resume = () => {
   const currentExperienceText = "June 2021 - ";
 
   return (
-    <div>
+    <div id="ResumeView">
       <div className="content margin-top" style={{ maxWidth: "1400px" }}>
         <div className="row-padding two-column">
           <div className="third text-align-left">

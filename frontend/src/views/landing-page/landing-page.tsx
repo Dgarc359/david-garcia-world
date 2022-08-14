@@ -1,8 +1,8 @@
 import { LandingPageButton } from "./svg";
 import "./landing-page.css";
 import React from "react";
-import { GlobalContext } from "../common";
-import { useColorway } from "../hooks";
+import { GlobalContext } from "../../common";
+import { useColorway } from "../../hooks";
 
 export const LandingPage = () => {
 
@@ -24,6 +24,7 @@ export const LandingPage = () => {
         justifyContent: "space-around",
         alignItems: "center",
       }}
+      id="LandingPageView"
     >
       <LandingPageButton
         onHoverStroke={"seagreen"}

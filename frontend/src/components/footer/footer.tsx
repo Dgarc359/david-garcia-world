@@ -1,7 +1,7 @@
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { GlobalContext } from "../common";
+import { GlobalContext } from "../../common";
 
 export const Footer = () => {
   const { currentPageColorway, preferredTheme } = React.useContext(GlobalContext)!;

@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
+import { ResumeLi } from "../common/resume-li";
 
 
 export const RevatureEducation = () => {
@@ -18,28 +19,28 @@ export const RevatureEducation = () => {
       </h6>
       <p>Project 3 (Stocks App)</p>
       <ul>
-        <li>
+        <ResumeLi>
           Managed Gitflow using Git CLI and resolved merge conflicts
-        </li>
-        <li>
+        </ResumeLi>
+        <ResumeLi>
           Implemented Yahoo Finance API Java package in the backend to receive
           up-to-date stock information 
-        </li>
-        <li>
+        </ResumeLi>
+        <ResumeLi>
           Developed frontend application leveraging React
-        </li>
-        <li>
+        </ResumeLi>
+        <ResumeLi>
           Implemented CI / CD with Jenkins
-        </li>
+        </ResumeLi>
       </ul>
       <p>Project 2 (Custom ORM)</p>
       <ul>
-        <li>
+        <ResumeLi>
           Leveraged JDBC to establish connection between ORM and AWS Postgres SQL database
-        </li>
-        <li>
+        </ResumeLi>
+        <ResumeLi>
           Developed Unit and Integration tests using Junit and Mockito
-        </li>
+        </ResumeLi>
       </ul>
     </div>
   );
