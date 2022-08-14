@@ -1,4 +1,4 @@
-import { LandingPageButton } from "../elements/svg/landing-page-button/landing-page-button";
+import { LandingPageButton } from "./svg";
 import "./landing-page.css";
 import React from "react";
 import { GlobalContext } from "../common";
