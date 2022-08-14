@@ -1,4 +1,4 @@
-import { ApiStack } from "./MyStack";
+import { ApiStack } from "./ApiStack";
 import { App } from "@serverless-stack/resources";
 import { FrontendStack } from "./FrontendStack";
 

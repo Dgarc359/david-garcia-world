@@ -36,15 +36,7 @@ body {
   margin-right: auto;
 }
 
-.row-padding,
-.row-padding > .half,
-.row-padding > .third,
-.row-padding > .twothird,
-.row-padding > .threequarter,
-.row-padding > .quarter,
-.row-padding > .col {
-  padding: 0 8px;
-}
+
 
 .white,
 .hover-white:hover {
@@ -157,17 +149,15 @@ h6 {
   text-align: center;
 }
 
-.third {
+/* .third {
   width: 33.33333%;
 }
 
 .twothird {
   width: 66.66666%;
-}
+} */
 
-.two-column {
-  display: flex;
-}
+
 
 .text-align-left {
   text-align: left;
@@ -194,6 +184,42 @@ h6 {
     color: #1a1a1a !important;
   }
 }
+
+@media only screen and (max-width: 428px) {
+  .third {
+    width: 100%;
+  }
+
+  .two-third {
+    width: 100%;
+  }
+  
+}
+
+@media only screen and (min-width: 429px) {
+  .two-column {
+    display: flex;
+  }
+
+  .row-padding,
+  .row-padding > .half,
+  .row-padding > .third,
+  .row-padding > .twothird,
+  .row-padding > .threequarter,
+  .row-padding > .quarter,
+  .row-padding > .col {
+    padding: 0 8px;
+  }
+
+  .third {
+    height: full;
+  }
+  
+  .card-4 {
+    height: 100%;
+  }
+}
+
 
 h6 > svg > path {
   fill: #009688 !important;
