@@ -20,7 +20,7 @@ export const Footer = () => {
       }}
     >
       <footer className="container center margin-top" style={{
-        backgroundColor: currPrimaryColorway
+        backgroundColor: currPrimaryColorway,
       }}>
         <div
           style={{
