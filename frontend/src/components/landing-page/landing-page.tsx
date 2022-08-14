@@ -2,7 +2,7 @@ import { LandingPageButton } from "./svg";
 import "./landing-page.css";
 import React from "react";
 import { GlobalContext } from "../common";
-import { useColorway } from "../hooks/useColorway";
+import { useColorway } from "../hooks";
 
 export const LandingPage = () => {
 

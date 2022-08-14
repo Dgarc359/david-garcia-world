@@ -12,7 +12,7 @@ import {
   faCertificate,
 } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
-import { useColorway } from "../hooks/useColorway";
+import { useColorway } from "../hooks";
 import { RevatureWorkExperience } from "./work-experience";
 import { RevatureEducation, FIUEducation } from "./education";
 

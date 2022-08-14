@@ -1,5 +1,5 @@
 import { strokes } from "../common";
-import { useColorway } from "../hooks/useColorway";
+import { useColorway } from "../hooks";
 
 export const UnderConstruction = (colorway: {primary: strokes}) => {
   useColorway(colorway.primary, "white");
