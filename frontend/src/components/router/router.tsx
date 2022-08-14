@@ -30,7 +30,6 @@ export const RouterComponent = () => {
 
           <Route path="/projects" element={<Projects/>}>
             <Route index element={<ProjectChoices/>}/>
-            <Route path="choices" element={<ProjectChoices/>}/>
             <Route path="davidgarcia-world" element={<DavidGarciaWorld/>}/>
           </Route> 
 
