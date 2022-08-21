@@ -4,13 +4,10 @@ import { useColorway, useThemedColorway } from "../../hooks";
 export const Projects = () => {
 
   useColorway("violet", "white");
-
- 
   
-
   return (
     <div id="ProjectsView">
-      <Link to="choices"/>
+      {/* <Link to="choices"/> */}
       <Outlet/>
     </div>
   );
