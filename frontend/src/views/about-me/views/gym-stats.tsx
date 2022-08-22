@@ -9,7 +9,7 @@ const options: HighCharts.Options = {
   series: [{
     name: 'Custom Series 2',
     type: 'line',
-    data: [[1597930200000, 1], [1597930200032, 2], [1597930200043, 3]]
+    data: [['2022-08-17T09:27:00.000Z', 1], ['2022-08-18T09:27:00.000Z', 2], ['2022-08-19T09:27:00.000Z', 3]]
   },
   {
     name: 'Custom Series 1',

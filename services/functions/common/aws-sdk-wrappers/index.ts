@@ -1,0 +1,1 @@
+export { SSMWrapper } from "./ssm";
