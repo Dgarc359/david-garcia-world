@@ -5,8 +5,8 @@ import {
 } from "react-router-dom";
 import { Resume, LandingPage, UnderConstruction, Projects } from "../../views";
 import { Example } from "../example/example";
-import { Navbar } from "../navbar/navbar";
-import { Footer } from "../footer/footer";
+// import { Navbar } from "../navbar/navbar";
+// import { Footer } from "../footer/footer";
 import { DavidGarciaWorld } from "../../views/projects/views/davidgarcia-world";
 import { ProjectChoices } from "../../views/projects/views/project-choices";
 import { AboutMe } from "../../views/about-me/about-me";
@@ -16,22 +16,22 @@ import { GymStats } from "../../views/about-me/views/gym-stats";
 export const RouterComponent = () => {
   return (
     <div
-        className="full-height"
-        style={{
-          display: "flex",
-          flexFlow: "column",
-        }}
+        className="w-full h-full"
+        // style={{
+        //   display: "flex",
+        //   flexFlow: "column",
+        // }}
         id="router"
       >
     <Router>
       
-        <Navbar />
+        {/* <Navbar /> */}
         <Switch>
-          <Route path="/example" element={<Example />} />
-          <Route path="/resume" element={<Resume />} />
+          {/* <Route path="/example" element={<Example />} />
+          <Route path="/resume" element={<Resume />} /> */}
           <Route path="/" element={<LandingPage />} />
 
-          <Route path="/projects" element={<Projects/>}>
+          {/* <Route path="/projects" element={<Projects/>}>
             <Route index element={<ProjectChoices/>}/>
             <Route path="davidgarcia-world" element={<DavidGarciaWorld/>}/>
           </Route> 
@@ -39,11 +39,11 @@ export const RouterComponent = () => {
           <Route path="/about-me" element={<AboutMe/>}>
             <Route index element={<AboutMeChoices/>}/>
             <Route path="gym-stats" element={<GymStats/>}/>
-          </Route>
+          </Route> */}
 
           <Route path="*" element={<UnderConstruction primary="black" />} />      
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       
     </Router>
     </div>
