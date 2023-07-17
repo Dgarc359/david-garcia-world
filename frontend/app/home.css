@@ -1,0 +1,6 @@
+
+.badge-container:hover {
+  .first-name {
+    mix-blend-mode: overlay;
+  }
+}
