@@ -14,7 +14,7 @@ export default function MiniRover() {
       <div className="md:flex md:ml-60 mx-3 ">
         <div className="flex-col">
           <div>
-            <p className="text-2xl">Live Mastodon Feed</p>
+            <p className="text-2xl">Latest News</p>
           </div>
           <MastodonPostFeed postId='110684790778942335' mastodonInstanceUrl='mastodon.tejat.net' />
         </div>

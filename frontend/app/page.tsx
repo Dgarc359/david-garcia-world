@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import './home.css';
 
 export default function Home() {
@@ -16,11 +17,26 @@ export default function Home() {
        <p className="text-xl font-medium cursor-default select-none">Software engineer</p>
        </div>
        <div className="flex h-screen mx-10 mt-10 justify-center gap-10">
-        <a className="h-[150px]" href="/projects">
+
+        {/* <a className="h-[150px]" href="/projects"> */}
+        {/* </Link> */}
+        <Link
+          href={'/projects'}
+          as={'/projects'}
+        >
         <div className="bg-violet-500 h-[150px] w-[150px] rounded-lg shadow-lg hover:bg-violet-800 relative flex justify-center items-end">
-          <p className="align-baseline text-lg text-white font-semibold opacity-75 pb-3 select-none">Projects</p>
+          <p className="align-baseline text-lg text-white font-semibold opacity-75 pb-3 select-none">
+            {/* <Link
+              href={`/projects`}
+              as={`/projects`}
+            > */}
+            Projects
+            {/* </Link> */}
+          </p>
         </div>
-        </a>
+        </Link>
+
+        {/* </a> */}
         <a className="h-[150px]" href="">
         <div className=" bg-green-300 h-[150px] w-[150px] rounded-lg shadow-lg hover:bg-green-800 relative flex justify-center items-end">
         <p className="align-baseline text-lg text-white font-semibold opacity-75 pb-3 select-none">Resume</p>
