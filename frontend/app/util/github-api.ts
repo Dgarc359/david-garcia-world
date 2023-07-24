@@ -8,8 +8,8 @@ export async function getRepoLanguages (account: string, repo: string) {
       "Content-Type": "application/json"
     }
   })
-  .then(res => res.text())
+  .then(res => res.json())
   .catch(e => console.error(e));
 
-  return res ?? "{}"
+  return res ?? {}
 }
