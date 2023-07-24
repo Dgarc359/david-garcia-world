@@ -15,10 +15,10 @@ const determineLanguagePercents = (githubPayload: {
   return percents;
 }
 
-export default function ProjectCard(props: Omit<Project, "filterableMetadata">) {
+export default function ProjectCard(props: Omit<Project, "filterableMetadata"> & {githubPayload: {[K in typeof languages[number]]?: number}}) {
   // TODO: get github data
-  const githubPayload = {"Rust":3422, "Typescript": 1234}
-  const languagePercents = determineLanguagePercents(githubPayload);
+  // const githubPayload = {"Rust":3422, "Typescript": 1234}
+  const languagePercents = determineLanguagePercents(props.githubPayload);
 
   return(
     <Link href={props.href}>

@@ -9,6 +9,7 @@ export type Filter = { language: Set<typeof languages[number]> };
 export interface Project {
   displayTitle: string; 
   description: string;
-  filterableMetadata: Filter, 
+  filterableMetadata: Filter;
   href: string;
+  githubPayload: {[K in typeof languages[number]]?: number};
 }
