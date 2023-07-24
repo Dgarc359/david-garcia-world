@@ -1,12 +1,9 @@
-export const languages = ["Javascript", "Rust", "Go", "Typescript", "Python"] as const;
-
-// export type Filter = {
-//   language: Set<typeof languages[number]>;
-// }
+export const languages = ["JavaScript", "Rust", "Go", "TypeScript", "Python", "HTML", "Vue", "Makefile", "CSS", "Dockerfile", "Shell", "Starlark"] as const;
 
 export type Filter = { language: Set<typeof languages[number]> };
 
 export interface Project {
+  account: string;
   displayTitle: string; 
   description: string;
   filterableMetadata: Filter;

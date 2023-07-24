@@ -13,6 +13,7 @@ export default function ProjectsPage() {
   
   const [projectsMap, setProjectsMap] = React.useState<Map<string, Project>>(new Map([
     ["mini-rover",{
+      account: "Dgarc359",
       displayTitle: "Mini Rover",
       description: "a small rover",
       filterableMetadata: {
@@ -20,13 +21,33 @@ export default function ProjectsPage() {
       },
       href: "/projects/mini-rover",
       githubPayload: {}
+    }],
+    ["eddington", {
+      account: "null-channel",
+      displayTitle: "Eddington",
+      description: "open source cloud docker lifecycle manager",
+      filterableMetadata: {
+        language: new Set(),
+      },
+      href: "/projects/eddington",
+      githubPayload: {}
+    }],
+    ["mastodon-post-feed", {
+      account: "Dgarc359",
+      displayTitle: "Mastodon Post Feed",
+      description: "A feed which displays all the replies to a given mastodon post",
+      filterableMetadata: {
+        language: new Set(),
+      },
+      href: "/projects/mastodon-post-feed",
+      githubPayload: {}
     }]
   ]))
 
 
   React.useEffect(() => {
     [...projectsMap.entries()].forEach(async ([repo, project]) => {
-      const res = await getRepoLanguages("Dgarc359", repo);
+      const res = await getRepoLanguages(project.account, repo);
       console.log(JSON.stringify(res));
       const langSet = project.filterableMetadata.language
       Object.keys(res).forEach((key: any) => {
@@ -121,8 +142,8 @@ export default function ProjectsPage() {
         </div>
         }
       </div>
-      <div id="projects" className="flex justify-center">
-        <div className="text-4xl font-bold">
+      <div id="projects" className="">
+        <div className="text-4xl font-bold flex gap-4 justify-center mt-2">
           {
             [...projectsMap.entries()].map(([repo, project]) => {
               if( // no filter exists no need to see if we want to display the project or not.
