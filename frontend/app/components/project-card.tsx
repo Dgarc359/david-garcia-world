@@ -26,7 +26,8 @@ export default function ProjectCard(props: Omit<Project, "filterableMetadata" | 
     <Link href={props.href}>
     <div className="m-2 p-2 w-auto h-auto sm:min-w-[340px] sm:min-h-[300px] sm:max-w-[340px] border border-gray-300 rounded-md hover:shadow-lg flex flex-col justify-between">
         
-      <div className="p-2 flex justify-center text-center">
+      <div id="title"
+        className="p-2 flex justify-center text-center font-bold">
         <div>
         {props.displayTitle}
         </div>

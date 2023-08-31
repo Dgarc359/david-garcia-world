@@ -17,22 +17,22 @@ export default function Home() {
        <div className="flex justify-center">
        <p className="text-xl font-medium cursor-default select-none">Software engineer</p>
        </div>
-       <div className="flex h-screen mx-10 mt-10 justify-center gap-10">
+       <div className="flex-row md:flex md:h-screen mx-10 mt-10 md:justify-center gap-10">
 
         <Link
           href={'/projects'}
           as={'/projects'}
         >
-        <div className="bg-violet-500 h-[150px] w-[150px] rounded-lg shadow-lg hover:bg-violet-800 relative flex justify-center items-end">
-          <p className="align-baseline text-lg text-white font-semibold opacity-75 pb-3 select-none">
+        <div className="h-[150px] w-[150px] rounded-lg hover:shadow-lg relative flex justify-center items-end border border-gray-300">
+          <p className="align-baseline text-lg font-semibold opacity-75 pb-3 select-none">
             Projects
           </p>
         </div>
         </Link>
 
         <a className="h-[150px]" href="">
-        <div className=" bg-green-300 h-[150px] w-[150px] rounded-lg shadow-lg hover:bg-green-800 relative flex justify-center items-end">
-        <p className="align-baseline text-lg text-white font-semibold opacity-75 pb-3 select-none">Resume</p>
+        <div className="h-[150px] w-[150px] rounded-lg hover:shadow-lg relative flex justify-center items-end border border-gray-300">
+        <p className="align-baseline text-lg font-semibold opacity-75 pb-3 select-none">Resume</p>
         </div>
         </a>
 
@@ -40,8 +40,8 @@ export default function Home() {
           href={'/roadmap'}
           as={'/roadmap'}
         >
-        <div className=" bg-orange-500 h-[150px] w-[150px] rounded-lg shadow-lg hover:bg-orange-800 relative flex justify-center items-end">
-          <p className="align-baseline text-lg text-white font-semibold opacity-75 pb-3 select-none">
+        <div className="h-[150px] w-[150px] rounded-lg hover:shadow-lg relative flex justify-center items-end border border-gray-300">
+          <p className="align-baseline text-lg font-semibold opacity-75 pb-3 select-none">
             Roadmap
           </p>
         </div>

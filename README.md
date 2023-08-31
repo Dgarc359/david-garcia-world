@@ -1,9 +1,16 @@
-# David Garcia World 🌎
+# Portfolio 🌎
+Source code for my current portfolio frontend website
 
-Repository containing source code for my website!
+# 🏗 UNDER DEVELOPMENT 🏗
+This repository is currently undergoing heavy development. please have patience while certain features are implemented.
 
-# Mockup
+# Key features
+* Built with NextJs
+* Deployed to AWS
 
+# Mockups
+
+## V1 website mockup
 The current mockup for the website resides in [figma](https://www.figma.com/proto/idD8LMRQaqnEuDOXbkLSso/David-Garcia-World?node-id=0%3A1)
 
 # Copyright Notice
