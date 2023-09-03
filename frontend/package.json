@@ -1,38 +1,31 @@
 {
-  "name": "david-garcia-world-frontend",
+  "name": "frontend",
+  "version": "0.1.0",
   "private": true,
-  "version": "1.0.0",
-  "type": "module",
   "scripts": {
-    "start": "sst-env -- vite",
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "fmt": "yarn prettier .prettierrc.yaml --write .",
-    "fmt:staged": "yarn pretty-quick --staged"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.1.2",
-    "@fortawesome/free-brands-svg-icons": "^6.1.2",
-    "@fortawesome/free-solid-svg-icons": "^6.1.2",
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-regular-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "gapi-script": "^1.2.0",
-    "highcharts": "^10.2.0",
-    "highcharts-react-official": "^3.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-google-login": "^5.2.2",
-    "react-router-dom": "^6.3.0"
-  },
-  "devDependencies": {
-    "@serverless-stack/static-site-env": "^1.6.10",
-    "@types/node": "^18.6.4",
-    "@types/react": "^18.0.15",
-    "@types/react-dom": "^18.0.6",
-    "@vitejs/plugin-react": "^2.0.0",
-    "prettier": "^2.7.1",
-    "pretty-quick": "^3.1.3",
-    "typescript": "^4.6.4",
-    "vite": "^3.0.0"
+    "@types/node": "20.4.2",
+    "@types/react": "18.2.15",
+    "@types/react-dom": "18.2.7",
+    "autoprefixer": "10.4.14",
+    "axios": "^1.4.0",
+    "eslint": "8.45.0",
+    "eslint-config-next": "13.4.10",
+    "mastodon-post-feed": "^0.1.33",
+    "next": "13.4.10",
+    "postcss": "8.4.26",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tailwindcss": "3.3.3",
+    "typescript": "5.1.6"
   }
 }

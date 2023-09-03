@@ -3,14 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "sst start",
-    "build": "sst build",
-    "deploy": "sst deploy",
-    "remove": "sst remove",
-    "console": "sst console",
     "typecheck": "tsc --noEmit",
-    "dev": "cd frontend && yarn dev",
-    "test": "vitest run",
+    "dev": "yarn workspace frontend dev",
+    "build": "yarn workspace frontend build",
+    "deploy": "yarn build && yarn workspace backend deploy",
     "fmt:staged": "yarn pretty-quick --staged",
     "fmt": "yarn pretty-quick"
   },
@@ -25,7 +21,7 @@
     "vitest": "^0.21.1"
   },
   "workspaces": [
-    "services",
+    "backend",
     "frontend"
   ]
 }
