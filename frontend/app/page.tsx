@@ -17,37 +17,38 @@ export default function Home() {
        <div className="flex justify-center">
        <p className="text-xl font-medium cursor-default select-none">Software engineer</p>
        </div>
-       <div className="flex-row md:flex md:h-screen mx-10 mt-10 md:justify-center gap-10">
+       <div className="flex-row md:flex h-screen mx-10 mt-10 md:justify-center gap-10">
 
         <Link
           href={'/projects'}
           as={'/projects'}
         >
-        <div className="h-[150px] w-[150px] rounded-lg hover:shadow-lg relative flex justify-center items-end border border-gray-300">
+        <div className="h-[150px] w-[150px] rounded-lg hover:shadow-lg relative flex justify-center items-end border border-gray-300 bg-white">
           <p className="align-baseline text-lg font-semibold opacity-75 pb-3 select-none">
             Projects
           </p>
         </div>
         </Link>
 
-        <a className="h-[150px]" href="">
-        <div className="h-[150px] w-[150px] rounded-lg hover:shadow-lg relative flex justify-center items-end border border-gray-300">
+        <Link
+          href={'/resume'}
+          as={'/resume'}
+        >
+        <div className="h-[150px] w-[150px] rounded-lg hover:shadow-lg relative flex justify-center items-end border border-gray-300 bg-white">
         <p className="align-baseline text-lg font-semibold opacity-75 pb-3 select-none">Resume</p>
         </div>
-        </a>
+        </Link>
 
         <Link
           href={'/roadmap'}
           as={'/roadmap'}
         >
-        <div className="h-[150px] w-[150px] rounded-lg hover:shadow-lg relative flex justify-center items-end border border-gray-300">
+        <div className="h-[150px] w-[150px] rounded-lg hover:shadow-lg relative flex justify-center items-end border border-gray-300 bg-white">
           <p className="align-baseline text-lg font-semibold opacity-75 pb-3 select-none">
             Roadmap
           </p>
         </div>
         </Link>
-
-        
 
        </div>
       </div>

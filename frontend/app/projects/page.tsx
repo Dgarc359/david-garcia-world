@@ -99,7 +99,10 @@ export default function ProjectsPage() {
         <div className={`flex justify-center my-4 gap-10`}>
           <div className="flex-col">
             <div className="mt-2 underline select-none cursor-normal">Programming Languages</div>
-            <ul>
+            <ul className="grid justify-center" 
+                style={{
+                    "gridTemplateColumns": "repeat(2, 1fr)"
+                }}>
               {
                 languages.map((language) => (
                   <div key={language}>

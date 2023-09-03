@@ -5,6 +5,7 @@ import LanguageBar from "./language-bar/language-bar";
 const determineLanguagePercents = (githubPayload: {
   [K in typeof languages[number]]?: number;
 }) => {
+    // todo: get new total after slicing array for top 4 langs
   const total = Object.values(githubPayload).reduce((acc, curr) => acc + curr, 0);
   const percents = Object.entries(githubPayload)
     .map(([language, bytes]) => {
@@ -14,7 +15,8 @@ const determineLanguagePercents = (githubPayload: {
       }
     })
     .sort((a, b) => b.percentage - a.percentage)
-    .filter(language => language.percentage > 3);
+    .filter(language => language.percentage > 3)
+    .slice(0, 4);
 
   return percents;
 }
@@ -32,7 +34,7 @@ export default function ProjectCard(props: Omit<Project, "filterableMetadata" | 
         {props.displayTitle}
         </div>
       </div>
-      <div className="px-2 font-light text-base justify-center flex">
+      <div className="px-2 font-light text-center text-base justify-center flex">
         <div>
         {props.description}
         </div>
