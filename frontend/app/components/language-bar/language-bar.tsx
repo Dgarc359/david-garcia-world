@@ -23,8 +23,6 @@ function determineLanguageColor(language: typeof languages[number]) {
       return {bg: "bg-teal-800", text: "text-teal-800"};
     case "Dockerfile":
       return {bg: "bg-cyan-400", text: "text-cyan-400"};
-    case "Vue":
-      return {bg: "bg-green-600", text: "bg-green-600"};
     default:
       return {bg: "bg-gray-600", text: "text-gray-600"}
   }
@@ -43,12 +41,12 @@ export default function LanguageBar(props: {
 
     const languageColor = determineLanguageColor(language.type);
 
-    languageBarArr.push(<LanguageBarBlock 
-      key={`${language.type}-${language.percentage}`} 
+    languageBarArr.push(<LanguageBarBlock
+      key={`${language.type}-${language.percentage}`}
       language={language.type}
       percentage={language.percentage}
       styles={
-        "h-full " 
+        "h-full "
         + `${languageColor.bg} ${i === 0 ? "rounded-l-md" : ""} ${i === props.languages.length - 1 ? "rounded-r-md" : ""}`
       }
     />)
@@ -73,7 +71,7 @@ export default function LanguageBar(props: {
       { languageBarArr.map((languageBar) => languageBar) }
       </div>
 
-      <div 
+      <div
         className="px-4"
       >
       <div className="flex gap-4 justify-center flex-wrap">

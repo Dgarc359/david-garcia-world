@@ -1,32 +1,31 @@
 "use client"
-import { getRepoMilestones } from '@/app/util';
-import React from 'react';
+import { getIssueByMilestone, useGetRepoMilestones  } from "@/app/util";
 
-export function Milestones(props: { className?: string}) {
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faSignHanging} from "@fortawesome/free-solid-svg-icons";
 
-    const [roadmapMilestones, setRoadmapMilestones] = React.useState<any | null>(null);
+export function Milestones(props: {
+  containerStyle?: string;
+  limits?: { prLimit?: number; issueLimit?: number };
+}) {
 
-    React.useEffect(() => {
-        console.log("use effect");
+    const {data, error, isLoading} = useGetRepoMilestones("Dgarc359", "david-garcia-world")
 
-    (async () => {
-        const repoMilestones = await getRepoMilestones('Dgarc359', 'david-garcia-world');
-        const mappedMilestones = repoMilestones
-            .map((res: any) => res.title)
-        console.log(JSON.stringify(mappedMilestones))
-        setRoadmapMilestones(mappedMilestones);
-    })()
-        
-    }, []);
+  if (!data) {
+    return <div />;
+  }
 
-    if(!roadmapMilestones)
-    {
-        return (<div/>)
-    }
+  if(isLoading) return (<div>Loading!</div>);
+      if(error) return (<div>Error!</div>);
 
-    return roadmapMilestones.map((item: any) => {
-        return (<div key={item} className={props.className ?? ""}>
-            {item}
-        </div>)
-    })
+  return (
+    <>
+      {data.map((item: any) => (
+        <div key={item.title} className={props.containerStyle ?? ""}>
+            <FontAwesomeIcon icon={faSignHanging} />
+          {item.title}
+        </div>
+      ))}
+    </>
+  );
 }

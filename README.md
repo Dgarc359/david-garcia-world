@@ -1,5 +1,5 @@
-# Portfolio 🌎
-Source code for my current portfolio frontend website
+# About
+Everything I'm about
 
 # 🏗 UNDER DEVELOPMENT 🏗
 This repository is currently undergoing heavy development. please have patience while certain features are implemented.

@@ -1,12 +1,23 @@
-export const languages = ["JavaScript", "Rust", "Go", "TypeScript", "Python", "HTML", "Vue", "Makefile", "CSS", "Dockerfile", "Shell", "Starlark"] as const;
+export const languages = [
+  "JavaScript",
+  "Rust",
+  "Go",
+  "TypeScript",
+  "Python",
+  "HTML",
+  "Makefile",
+  "CSS",
+  "Dockerfile",
+  "Shell",
+] as const;
 
-export type Filter = { language: Set<typeof languages[number]> };
+export type Filter = { language: Set<(typeof languages)[number]> };
 
 export interface Project {
   account: string;
-  displayTitle: string; 
+  displayTitle: string;
   description: string;
   filterableMetadata: Filter;
   href: string;
-  githubPayload: {[K in typeof languages[number]]?: number};
+  githubPayload: { [K in (typeof languages)[number]]?: number };
 }
