@@ -24,3 +24,13 @@ jobs:
             path: which
             args: ["npm"]
       - task: deploy
+        config: 
+          platform: linux
+          image_resource:
+            type: registry-image
+            source:
+              repository: busybox
+ 
+          run:
+            path: echo
+            args: ["deploying"]
