@@ -1,3 +1,4 @@
+# This yaml file is leveraged by a remote concourse server
 resources:
   - name: repo
     type: git
