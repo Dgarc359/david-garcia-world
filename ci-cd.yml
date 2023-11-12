@@ -3,6 +3,7 @@ resources:
     type: git
     source:
       uri: https://github.com/Dgarc359/david-garcia-world.git
+      branch: test-cicd
 
 jobs:
   - name: dg-world-task
