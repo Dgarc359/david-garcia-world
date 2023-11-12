@@ -1,0 +1,21 @@
+resources:
+  - name: repo
+    type: git
+    source:
+      uri: https://github.com/Dgarc359/david-garcia-world
+
+jobs:
+  - name: dg-world-task
+    plan:
+      - get: repo
+        trigger: true
+      - task: build
+        config: 
+          platform: linux
+          image_resource:
+            type: registry-image
+            source:
+              repository: busybox
+          run:
+            path: echo
+            args: ["Hello World"]
