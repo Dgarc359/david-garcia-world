@@ -18,6 +18,7 @@ jobs:
       - get: repo
         trigger: true
       - task: install
+        image: node-image
         config: 
           inputs:
             - name: repo
