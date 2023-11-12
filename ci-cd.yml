@@ -16,6 +16,8 @@ jobs:
             type: registry-image
             source:
               repository: busybox
+          inputs:
+            - name: repo
           run:
-            path: echo
-            args: ["Hello World"]
+            path: cat
+            args: ["repo/README.md"]
