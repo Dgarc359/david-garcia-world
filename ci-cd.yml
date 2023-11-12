@@ -21,8 +21,8 @@ jobs:
           inputs:
             - name: repo
           run:
-            path: which
-            args: ["npm"]
+            path: npm
+            args: ["install"]
       - task: deploy
         config: 
           platform: linux
@@ -30,7 +30,6 @@ jobs:
             type: registry-image
             source:
               repository: busybox
- 
           run:
             path: echo
             args: ["deploying"]
