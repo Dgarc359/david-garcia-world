@@ -4,6 +4,7 @@ resources:
     source:
       uri: https://github.com/Dgarc359/david-garcia-world.git
       branch: test-cicd
+      check_every: 20s
 
 jobs:
   - name: dg-world-task
@@ -22,3 +23,4 @@ jobs:
           run:
             path: which
             args: ["npm"]
+      - task: deploy
