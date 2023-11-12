@@ -2,7 +2,7 @@ resources:
   - name: repo
     type: git
     source:
-      uri: https://github.com/Dgarc359/david-garcia-world
+      uri: https://github.com/Dgarc359/david-garcia-world.git
 
 jobs:
   - name: dg-world-task
