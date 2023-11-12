@@ -20,5 +20,5 @@ jobs:
           inputs:
             - name: repo
           run:
-            path: cat
-            args: ["repo/README.md"]
+            path: which
+            args: ["npm"]
