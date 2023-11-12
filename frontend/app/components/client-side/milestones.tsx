@@ -17,15 +17,32 @@ export function Milestones(props: {
 
   if(isLoading) return (<div>Loading!</div>);
       if(error) return (<div>Error!</div>);
+      console.log(data)
 
   return (
-    <>
+    <div className="flex-col">
       {data.map((item: any) => (
         <div key={item.title} className={props.containerStyle ?? ""}>
+
+            <div className="flex">
             <FontAwesomeIcon icon={faSignHanging} />
+          <div className="px-4" />
+
+          <div className="flex-col">
+          <div>
           {item.title}
+          </div>
+          <div>
+          {item.closed_at ?
+            `Completed: ${new Date(item.closed_at).toDateString()}`
+            : undefined
+          }
+          </div>
+          </div>
+
+          </div>
         </div>
       ))}
-    </>
+    </div>
   );
 }

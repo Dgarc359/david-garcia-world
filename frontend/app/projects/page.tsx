@@ -37,14 +37,26 @@ export default function ProjectsPage() {
     ["mastodon-post-feed", {
       account: "Dgarc359",
       displayTitle: "Mastodon Post Feed",
-      description: "A feed which displays all the replies to a given mastodon post",
+      description: "A feed which displays all the replies to a given mastodon post (check mini rover page for a live demo!)",
       filterableMetadata: {
         language: new Set(),
       },
       //href: "/projects/mastodon-post-feed",
       href: "https://blog.nameofthemist.com/mastodon-post-feed",
       githubPayload: {}
+    }],
+["todowheel", {
+      account: "Dgarc359",
+      displayTitle: "Todowheel",
+      description: "Get a random todo based on different parameters",
+      filterableMetadata: {
+        language: new Set(),
+      },
+      //href: "/projects/mastodon-post-feed",
+      href: "https://blog.nameofthemist.com/todowheel",
+      githubPayload: {}
     }]
+
   ]))
 
 
@@ -77,6 +89,7 @@ export default function ProjectsPage() {
       onKeyDown={(e) => {
         console.log(e.code);
         if(e.code === "Escape") {
+            console.log("pressed escape")
           setLanguageVisibility(false);
         }
       }}
