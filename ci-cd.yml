@@ -43,15 +43,15 @@ jobs:
             path: npm
             args: ["run", "build"]
             dir: repo
-      # - task: deploy 
-      #   image: node-image
-      #   config: 
-      #     inputs:
-      #       - name: repo
-      #       - name: dependencies
-      #         path: repo/node_modules
-      #     platform: linux
-      #     run:
-      #       path: npm
-      #       args: ["run", "deploy"]
-      #       dir: repo
+      - task: deploy 
+        image: node-image
+        config: 
+          inputs:
+            - name: repo
+            - name: dependencies
+              path: repo/node_modules
+          platform: linux
+          run:
+            path: npm
+            args: ["run", "deploy"]
+            dir: repo
