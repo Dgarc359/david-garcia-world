@@ -34,7 +34,7 @@ export function useGetRepoMilestones(account: string, repo: string) {
   return useSWR(url, fetcher);
 }
 
-export async function getIssueByMilestone(params: {
+export function useGetIssueByMilestone(params: {
   account: string;
   repo: string;
   milestoneName: string;
@@ -46,17 +46,7 @@ export async function getIssueByMilestone(params: {
     `repo:${account}/${repo} type:issue milestone:"${milestoneName}"`,
   );
 
-  const res = await fetch(
-    `https://api.github.com/search/issues?q=${queryParams}&sort=created&per_page=${issueLimit}`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    },
-  )
-    .then((res) => res.json())
-    .catch((e) => console.error(e));
+  const url = `https://api.github.com/search/issues?q=${queryParams}&sort=created&per_page=${issueLimit}`;
 
-  return res ?? {};
+  return useSWR(url, fetcher);
 }

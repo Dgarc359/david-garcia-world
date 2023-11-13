@@ -1,43 +1,57 @@
 "use client"
-import { getIssueByMilestone, useGetRepoMilestones  } from "@/app/util";
+import { useGetIssueByMilestone, useGetRepoMilestones  } from "@/app/util";
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faSignHanging} from "@fortawesome/free-solid-svg-icons";
+import { Issues } from "./issues";
 
 export function Milestones(props: {
   containerStyle?: string;
   limits?: { prLimit?: number; issueLimit?: number };
 }) {
 
-    const {data, error, isLoading} = useGetRepoMilestones("Dgarc359", "david-garcia-world")
+    const {data: milestones, error: getMilestonesError, isLoading: getMilestonesIsLoading} = useGetRepoMilestones("Dgarc359", "david-garcia-world")
 
-  if (!data) {
-    return <div />;
+  if (!milestones) {
+    return <div>No Milestones found!</div>;
   }
 
-  if(isLoading) return (<div>Loading!</div>);
-      if(error) return (<div>Error!</div>);
-      console.log(data)
+  if(getMilestonesIsLoading) return (<div>Loading!</div>);
+      if(getMilestonesError) return (<div>Error!</div>);
+
+    for (const milestone of milestones) {
+        if(milestone.closed_at) continue;
+
+/*
+        const {data, error, isLoading} = useGetIssueByMilestone({
+            account: "Dgarc359",
+            repo: "david-garcia-world",
+            milestoneName: milestone,
+            issueLimit: 5
+            })
+        issues.set(milestone.title, data)
+        */
+    }
 
   return (
     <div className="flex-col">
-      {data.map((item: any) => (
-        <div key={item.title} className={props.containerStyle ?? ""}>
+      {milestones.map((milestone: any) => (
+        <div key={milestone.title} className={props.containerStyle ?? ""}>
 
             <div className="flex">
             <FontAwesomeIcon icon={faSignHanging} />
           <div className="px-4" />
 
-          <div className="flex-col">
-          <div>
-          {item.title}
-          </div>
-          <div>
-          {item.closed_at ?
-            `Completed: ${new Date(item.closed_at).toDateString()}`
-            : undefined
-          }
-          </div>
+          <div className="flex-col text-center">
+              <div className="pb-2">
+              {milestone.title}
+              </div>
+              <div>
+              {milestone.closed_at ?
+                `Completed: ${new Date(milestone.closed_at).toDateString()}`
+                : <Issues milestone={milestone.title as string} />
+              }
+              </div>
           </div>
 
           </div>
