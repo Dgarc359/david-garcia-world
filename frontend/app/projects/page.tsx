@@ -10,7 +10,7 @@ export default function ProjectsPage() {
   const [filter, setFilter] = React.useState<Filter>({
     language: new Set()
   });
-  
+
   const [projectsMap, setProjectsMap] = React.useState<Map<string, Project>>(new Map([
     ["mini-rover",{
       account: "Dgarc359",
@@ -22,6 +22,7 @@ export default function ProjectsPage() {
       href: "/projects/mini-rover",
       githubPayload: {}
     }],
+    /*
     ["eddington", {
       account: "null-channel",
       displayTitle: "Eddington",
@@ -32,16 +33,30 @@ export default function ProjectsPage() {
       href: "/projects/eddington",
       githubPayload: {}
     }],
+    */
     ["mastodon-post-feed", {
       account: "Dgarc359",
       displayTitle: "Mastodon Post Feed",
-      description: "A feed which displays all the replies to a given mastodon post",
+      description: "A feed which displays all the replies to a given mastodon post (check mini rover page for a live demo!)",
       filterableMetadata: {
         language: new Set(),
       },
-      href: "/projects/mastodon-post-feed",
+      //href: "/projects/mastodon-post-feed",
+      href: "http://blog.nameofthemist.com/mastodon-post-feed",
+      githubPayload: {}
+    }],
+["todowheel", {
+      account: "Dgarc359",
+      displayTitle: "Todowheel",
+      description: "Get a random todo based on different parameters",
+      filterableMetadata: {
+        language: new Set(),
+      },
+      //href: "/projects/mastodon-post-feed",
+      href: "http://blog.nameofthemist.com/todowheel",
       githubPayload: {}
     }]
+
   ]))
 
 
@@ -54,7 +69,7 @@ export default function ProjectsPage() {
         console.log("key", key)
         langSet.add(key)
       })
-      
+
       setProjectsMap((state) => {
         const newState = new Map(state.entries());
         if(!newState.get(repo)) return state;
@@ -66,19 +81,20 @@ export default function ProjectsPage() {
     })
   }, [])
 
-  const [languageVisibility, setLanguageVisibility] = React.useState<boolean>(false); 
+  const [languageVisibility, setLanguageVisibility] = React.useState<boolean>(false);
 
   return(
-    <div id="project-root" 
+    <div id="project-root"
       className={'h-screen w-screen flex-col'}
       onKeyDown={(e) => {
         console.log(e.code);
         if(e.code === "Escape") {
+            console.log("pressed escape")
           setLanguageVisibility(false);
         }
       }}
     >
-      <div id="header" 
+      <div id="header"
         className='flex h-[30%] w-screen justify-center'>
           <div className='w-screen h-full justify-center relative flex badge-container md:w-[40%] md:h-[50%]'>
             <h1 className="select-none text-7xl text-slate-900 font-black absolute top-20 left-10 cursor-default drop-shadow-md md:relative md:left-40 first-name h-0 z-10">PROJ-</h1>
@@ -86,7 +102,7 @@ export default function ProjectsPage() {
             <h1 className="select-none absolute text-slate-900 font-black text-7xl right-5 top-[115px] cursor-default drop-shadow-md md:relative md:right-[140px] h-0 -z-10">ECTS</h1>
           </div>
       </div>
-      <div id="filters-section" 
+      <div id="filters-section"
       >
         <div>
           <div className="flex justify-center">
@@ -95,11 +111,11 @@ export default function ProjectsPage() {
             }}>Filters <FontAwesomeIcon icon={faFilter}/></p>
           </div>
         </div>
-        { languageVisibility && 
+        { languageVisibility &&
         <div className={`flex justify-center my-4 gap-10`}>
           <div className="flex-col">
-            <div className="mt-2 underline select-none cursor-normal">Programming Languages</div>
-            <ul className="grid justify-center" 
+            <div className="mt-2 underline select-none cursor-normal">Languages</div>
+            <ul className="grid justify-center"
                 style={{
                     "gridTemplateColumns": "repeat(2, 1fr)"
                 }}>
@@ -130,11 +146,11 @@ export default function ProjectsPage() {
                           return {...state, language: newLangs }
                         })
                       }
-                      }} 
-                      name={language} 
+                      }}
+                      name={language}
                       className="align-middle"
                     ></input>
-                    <span 
+                    <span
                     className="font-normal p-2 rounded-2xl cursor-pointer select-none justify-end align-middle" >{language}</span>
                   </label>
                   </div>
@@ -153,11 +169,11 @@ export default function ProjectsPage() {
                 filter.language.size === 0 || ([...filter.language].filter((lang) => project.filterableMetadata.language.has(lang)).length > 0)
               ) {
                 return(
-                  <ProjectCard 
-                    key={project.displayTitle + project.githubPayload} 
-                    href={project.href} 
-                    displayTitle={project.displayTitle} 
-                    description={project.description} 
+                  <ProjectCard
+                    key={project.displayTitle + project.githubPayload}
+                    href={project.href}
+                    displayTitle={project.displayTitle}
+                    description={project.description}
                     githubPayload={project.githubPayload}
                   />
                 )
