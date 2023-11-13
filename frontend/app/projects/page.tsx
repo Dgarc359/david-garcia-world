@@ -42,7 +42,7 @@ export default function ProjectsPage() {
         language: new Set(),
       },
       //href: "/projects/mastodon-post-feed",
-      href: "https://blog.nameofthemist.com/mastodon-post-feed",
+      href: "http://blog.nameofthemist.com/mastodon-post-feed",
       githubPayload: {}
     }],
 ["todowheel", {
@@ -53,7 +53,7 @@ export default function ProjectsPage() {
         language: new Set(),
       },
       //href: "/projects/mastodon-post-feed",
-      href: "https://blog.nameofthemist.com/todowheel",
+      href: "http://blog.nameofthemist.com/todowheel",
       githubPayload: {}
     }]
 
