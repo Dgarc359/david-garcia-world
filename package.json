@@ -8,7 +8,8 @@
     "build": "yarn workspace frontend build",
     "deploy": "yarn build && yarn workspace backend deploy",
     "fmt:staged": "yarn pretty-quick --staged",
-    "fmt": "yarn pretty-quick"
+    "fmt": "yarn pretty-quick",
+    "test:frontend": "yarn workspace frontend test"
   },
   "devDependencies": {
     "@serverless-stack/cli": "^1.6.10",
