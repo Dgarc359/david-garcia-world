@@ -12,8 +12,6 @@
     "test:frontend": "yarn workspace frontend test"
   },
   "devDependencies": {
-    "@serverless-stack/cli": "^1.6.10",
-    "@serverless-stack/resources": "^1.6.10",
     "@tsconfig/node16": "^1.0.3",
     "aws-cdk-lib": "2.32.0",
     "husky": "^8.0.1",
