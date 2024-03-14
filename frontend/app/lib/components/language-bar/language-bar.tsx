@@ -1,4 +1,4 @@
-import { languages } from "../../types";
+import { languages } from "@/app/lib/types";
 import LanguageBarBlock from "./language-bar-block";
 
 function determineLanguageColor(language: typeof languages[number]) {
@@ -67,14 +67,14 @@ export default function LanguageBar(props: {
 
   return(
     <div className={props.className}>
-      <div className="p-2 m-1 flex gap-1 h-6 w-full">
+      <div className="flex gap-1 m-1 p-2 w-full h-6">
       { languageBarArr.map((languageBar) => languageBar) }
       </div>
 
       <div
         className="px-4"
       >
-      <div className="flex gap-4 justify-center flex-wrap">
+      <div className="flex flex-wrap justify-center gap-4">
       { languageLegendArr.map((languageLegend) => languageLegend) }
 
       </div>
