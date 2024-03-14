@@ -1,4 +1,4 @@
-import { useGetIssueByMilestone } from "@/app/util"
+import { useGetIssueByMilestone } from "@/app/lib/util"
 import { faBullseye } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 

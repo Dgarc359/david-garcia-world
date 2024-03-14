@@ -1,5 +1,5 @@
 "use client"
-import { useGetIssueByMilestone, useGetRepoMilestones  } from "@/app/util";
+import { useGetIssueByMilestone, useGetRepoMilestones  } from "@/app/lib/util";
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faSignHanging} from "@fortawesome/free-solid-svg-icons";

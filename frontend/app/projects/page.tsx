@@ -1,11 +1,10 @@
 "use client";
 import React from "react";
-import { languages, Filter, Project } from "../types";
-import ProjectCard from "../components/project-card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
-import { getRepoLanguages } from "../util";
-import { Hero } from "../components/hero";
+import { getRepoLanguages } from "@/app/lib/util";
+import { Hero, ProjectCard } from "@/app/lib/components";
+import { languages, Filter, Project } from "@/app/lib/types";
 
 export default function ProjectsPage() {
   const [filter, setFilter] = React.useState<Filter>({

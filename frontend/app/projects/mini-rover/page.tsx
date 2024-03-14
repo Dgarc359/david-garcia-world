@@ -1,4 +1,4 @@
-import { Hero } from "@/app/components/hero";
+import { Hero } from "@/app/lib/components";
 import MastodonPostFeed from "mastodon-post-feed/lib/mastodon-post-feed";
 
 export default function MiniRover() {

@@ -2,7 +2,7 @@ import Link from "next/link";
 import "./home.css";
 import { Button } from "react-aria-components";
 import Image from "next/image";
-import { Hero } from "./components/hero";
+import { Hero } from "@/app/lib/components";
 
 export default function Home() {
   return (

@@ -1,15 +1,14 @@
-import { Milestones } from "../components";
-import { Hero } from "../components/hero";
+import { Hero, Milestones} from "@/app/lib/components";
 
 export default function RoadmapPage() {
   return (
-    <div id="roadmap-root" className="w-screen h-screen flex-col">
+    <div id="roadmap-root" className="flex-col w-screen h-screen">
       <Hero
         topLayerText="road"
         bottomLayerText="map"
         color="bg-cyan-200"
       />
-      <div className="w-full items-center">
+      <div className="items-center w-full">
         <Milestones containerStyle="py-10 flex justify-center cursor-default select-none" />
         H
       </div>
