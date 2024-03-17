@@ -9,6 +9,7 @@ export const languages = [
   "CSS",
   "Dockerfile",
   "Shell",
+  "Astro",
 ] as const;
 
 export type Filter = { language: Set<(typeof languages)[number]> };

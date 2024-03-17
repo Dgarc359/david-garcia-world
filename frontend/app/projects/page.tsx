@@ -1,8 +1,8 @@
-"use client";
+"use client"
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
-import { getRepoLanguages } from "@/app/lib/util";
+import { getRepoLanguages, getGenerallyAvailableRepositories } from "@/app/lib/util";
 import { Hero, ProjectCard } from "@/app/lib/components";
 import { languages, Filter, Project } from "@/app/lib/types";
 
@@ -10,83 +10,15 @@ export default function ProjectsPage() {
   const [filter, setFilter] = React.useState<Filter>({
     language: new Set(),
   });
-
-  const [projectsMap, setProjectsMap] = React.useState<Map<string, Project>>(
-    new Map([
-      [
-        "mini-rover",
-        {
-          account: "Dgarc359",
-          displayTitle: "Mini Rover",
-          description: "a small rover",
-          filterableMetadata: {
-            language: new Set(),
-          },
-          href: "/projects/mini-rover",
-          githubPayload: {},
-        },
-      ],
-      /*
-    ["eddington", {
-      account: "null-channel",
-      displayTitle: "Eddington",
-      description: "open source cloud docker lifecycle manager",
-      filterableMetadata: {
-        language: new Set(),
-      },
-      href: "/projects/eddington",
-      githubPayload: {}
-    }],
-    */
-    ["mastodon-post-feed", {
-      account: "Dgarc359",
-      displayTitle: "Mastodon Post Feed",
-      description: "A feed which displays all the replies to a given mastodon post (check mini rover page for a live demo!)",
-      filterableMetadata: {
-        language: new Set(),
-      },
-      //href: "/projects/mastodon-post-feed",
-      href: "http://blog.nameofthemist.com/mastodon-post-feed",
-      githubPayload: {}
-    }],
-["todowheel", {
-      account: "Dgarc359",
-      displayTitle: "Todowheel",
-      description: "Get a random todo based on different parameters",
-      filterableMetadata: {
-        language: new Set(),
-      },
-      //href: "/projects/mastodon-post-feed",
-      href: "http://blog.nameofthemist.com/todowheel",
-      githubPayload: {}
-    }]
-
-  ]))
-
-
-  React.useEffect(() => {
-    [...projectsMap.entries()].forEach(async ([repo, project]) => {
-      const res = await getRepoLanguages(project.account, repo);
-      console.log(JSON.stringify(res));
-      const langSet = project.filterableMetadata.language;
-      Object.keys(res).forEach((key: any) => {
-        console.log("key", key);
-        langSet.add(key);
-      });
-
-      setProjectsMap((state) => {
-        const newState = new Map(state.entries());
-        if (!newState.get(repo)) return state;
-        const repoFromMap = newState.get(repo);
-        repoFromMap!.filterableMetadata.language = langSet;
-        repoFromMap!.githubPayload = res;
-        return newState;
-      });
-    });
-  }, []);
-
-  const [languageVisibility, setLanguageVisibility] =
+ const [languageVisibility, setLanguageVisibility] =
     React.useState<boolean>(false);
+
+
+  const {data: projectsMap, error, isLoading } = getGenerallyAvailableRepositories("Dgarc359");
+  console.log("returned from hook", projectsMap);
+  if(isLoading || !projectsMap) { return <div> loading </div> }
+  if(error) { return <div> an error occured! </div> }
+
 
   return (
     <div
@@ -182,6 +114,7 @@ export default function ProjectsPage() {
                   href={project.href}
                   displayTitle={project.displayTitle}
                   description={project.description}
+                  language={Array.from(project.filterableMetadata.language.values())[0] as any}
                   githubPayload={project.githubPayload}
                 />
               );

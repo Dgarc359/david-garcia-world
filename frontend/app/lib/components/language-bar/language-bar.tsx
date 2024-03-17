@@ -23,6 +23,8 @@ function determineLanguageColor(language: typeof languages[number]) {
       return {bg: "bg-teal-800", text: "text-teal-800"};
     case "Dockerfile":
       return {bg: "bg-cyan-400", text: "text-cyan-400"};
+    case "Astro":
+    return {bg: "bg-orange-600", text: "text-orange-600"};
     default:
       return {bg: "bg-gray-600", text: "text-gray-600"}
   }
