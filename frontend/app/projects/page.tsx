@@ -98,8 +98,8 @@ export default function ProjectsPage() {
           </div>
         )}
       </div>
-      <div id="projects" className="">
-        <div className="flex justify-center gap-4 mt-2 font-bold text-4xl">
+      <div id="projects" className="flex justify-center">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-2 font-bold text-4xl">
           {[...projectsMap.entries()].map(([repo, project]) => {
             if (
               // no filter exists no need to see if we want to display the project or not.
