@@ -2,7 +2,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
-import { getRepoLanguages, getGenerallyAvailableRepositories } from "@/app/lib/util";
+import { getRepoLanguages, useGenerallyAvailableRepositories } from "@/app/lib/util";
 import { Hero, ProjectCard } from "@/app/lib/components";
 import { languages, Filter, Project } from "@/app/lib/types";
 
@@ -14,7 +14,7 @@ export default function ProjectsPage() {
     React.useState<boolean>(false);
 
 
-  const {data: projectsMap, error, isLoading } = getGenerallyAvailableRepositories("Dgarc359");
+  const {data: projectsMap, error, isLoading } = useGenerallyAvailableRepositories("Dgarc359");
   console.log("returned from hook", projectsMap);
   if(isLoading || !projectsMap) { return <div> loading </div> }
   if(error) { return <div> an error occured! </div> }

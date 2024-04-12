@@ -71,7 +71,7 @@ export function useGetIssueByMilestone(params: {
  * Returns a list of repositories with the 'generally-available' tag
  * @param account: The github account to search through repositories
  */
-export function getGenerallyAvailableRepositories(account: string): {
+export function useGenerallyAvailableRepositories(account: string): {
   isLoading: boolean;
   error: any;
   data: undefined | Project[];
@@ -122,23 +122,35 @@ export function getGenerallyAvailableRepositories(account: string): {
   };
 }
 
-export function getRepositoryMetadata(
+export function useRepositoryMetadata(
   accountName: string,
   repoName: string,
 ): { readme: { data: unknown; error: unknown; isLoading: boolean } } {
   return {
-    readme: getRepositoryReadme(accountName, repoName),
+    readme: useRepositoryReadme(accountName, repoName),
   };
 }
 
-export function getRepositoryReadme(accountName: string, repoName: string) {
+export function useRepositoryReadme(accountName: string, repoName: string) {
   const url = `https://raw.githubusercontent.com/${accountName}/${repoName}/main/readme.md`;
-  return useSWR("get-repo-md", () =>
+  const failoverUrl = `https://raw.githubusercontent.com/${accountName}/${repoName}/main/README.md`
+  const fetchReadme = (url:string) => fetch(url, {
+    method: "GET",
+    headers: { "content-type": "text/plain; charset=utf-8" },
+  }).then((data) => {
+    return data.text();
+  })
+  return useSWR(`get-repo-md-${repoName}`, () =>
     fetch(url, {
       method: "GET",
       headers: { "content-type": "text/plain; charset=utf-8" },
     }).then((data) => {
+      if(data.status === 404) {
+        return fetchReadme(failoverUrl)
+      }
       return data.text();
+    }).catch((e) => {
+      return fetchReadme(failoverUrl)
     }),
   );
 }
