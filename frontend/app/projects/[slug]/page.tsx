@@ -2,11 +2,8 @@
 import { MarkdownC } from "@/app/lib/components/client-side";
 import { usePathname } from "next/navigation";
 import { useRepositoryReadme } from "@/app/lib/util";
-interface Props {
-  repoName: string;
-}
 
-export default function ProjectsPage(props: Props) {
+export default function ProjectsPage() {
   console.log("loading projects page");
   const pathName = usePathname()
     .split("/")
@@ -25,7 +22,7 @@ export default function ProjectsPage(props: Props) {
   if (readmeData !== undefined) {
     return (
       <div className="flex justify-center">
-      <MarkdownC payload={readmeData} styles={"w-2/3"}/>
+      <MarkdownC payload={readmeData} customStyles={"w-2/3"}/>
       </div>
     );
   }

@@ -83,31 +83,17 @@ export function useGenerallyAvailableRepositories(account: string): {
     return { isLoading, error, data };
   }
 
+  if (data && !data.length) {
+    return { isLoading, error, data: undefined };
+  }
+
   if (data) {
-    if (!data.length) {
-      return { isLoading, error, data: undefined };
-    }
     const parsedRepositories: Project[] = data
-      .filter((repo: ListUserReposResponse) =>
-        repo.topics?.includes("generally-available"),
+      .filter(
+        (repo: ListUserReposResponse) =>
+          repo.topics?.includes("generally-available"),
       )
-      .map((repo: ListUserReposResponse) => {
-        const accountName = repo.owner.name
-          ? repo.owner.name
-          : repo.full_name.split("/")[0];
-        console.log(repo);
-        const p: Project = {
-          account: accountName,
-          displayTitle: repo.name,
-          description: repo.description ?? "",
-          href: `/projects/${repo.name}`,
-          filterableMetadata: {
-            language: new Set([repo.language! as any]),
-          },
-          githubPayload: {},
-        };
-        return p;
-      });
+      .map(repositoryToProject);
     return {
       isLoading,
       error,
@@ -122,6 +108,29 @@ export function useGenerallyAvailableRepositories(account: string): {
   };
 }
 
+function repositoryToProject(repo: ListUserReposResponse) {
+  const account = repo.owner.name
+    ? repo.owner.name
+    : repo.full_name.split("/")[0];
+
+  // const href = `projects/${repo.name}/`
+  const href = repo.name
+  console.log(href)
+
+  console.log(repo);
+  const p: Project = {
+    href,
+    account,
+    displayTitle: repo.name,
+    description: repo.description ?? "",
+    filterableMetadata: {
+      language: new Set([repo.language! as any]),
+    },
+    githubPayload: {},
+  };
+  return p;
+}
+
 export function useRepositoryMetadata(
   accountName: string,
   repoName: string,
@@ -133,24 +142,27 @@ export function useRepositoryMetadata(
 
 export function useRepositoryReadme(accountName: string, repoName: string) {
   const url = `https://raw.githubusercontent.com/${accountName}/${repoName}/main/readme.md`;
-  const failoverUrl = `https://raw.githubusercontent.com/${accountName}/${repoName}/main/README.md`
-  const fetchReadme = (url:string) => fetch(url, {
-    method: "GET",
-    headers: { "content-type": "text/plain; charset=utf-8" },
-  }).then((data) => {
-    return data.text();
-  })
-  return useSWR(`get-repo-md-${repoName}`, () =>
+  const failoverUrl = `https://raw.githubusercontent.com/${accountName}/${repoName}/main/README.md`;
+  const fetchReadme = (url: string) =>
     fetch(url, {
       method: "GET",
       headers: { "content-type": "text/plain; charset=utf-8" },
     }).then((data) => {
-      if(data.status === 404) {
-        return fetchReadme(failoverUrl)
-      }
       return data.text();
-    }).catch((e) => {
-      return fetchReadme(failoverUrl)
-    }),
+    });
+  return useSWR(`get-repo-md-${repoName}`, () =>
+    fetch(url, {
+      method: "GET",
+      headers: { "content-type": "text/plain; charset=utf-8" },
+    })
+      .then((data) => {
+        if (data.status === 404) {
+          return fetchReadme(failoverUrl);
+        }
+        return data.text();
+      })
+      .catch((e) => {
+        return fetchReadme(failoverUrl);
+      }),
   );
 }

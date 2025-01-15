@@ -110,7 +110,7 @@ export default function ProjectsPage() {
             ) {
               return (
                 <ProjectCard
-                  key={project.displayTitle + project.githubPayload}
+                  key={project.displayTitle}
                   href={project.href}
                   displayTitle={project.displayTitle}
                   description={project.description}

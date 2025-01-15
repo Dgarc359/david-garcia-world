@@ -26,9 +26,10 @@ interface Props {
 }
 export function ProjectCard(props: Omit<Project, "filterableMetadata" | "account"> & Props) {
   const languagePercents = determineLanguagePercents(props.githubPayload);
+  console.log("project card got href", props.href)
 
   return(
-    <Link href={props.href}>
+    <Link href={`/projects/${props.href}`} prefetch={false}>
     <div className="flex flex-col justify-between border-gray-300 hover:shadow-lg m-2 p-2 border rounded-md w-auto sm:min-w-[340px] sm:max-w-[340px] h-auto sm:min-h-[300px]">
 
       <div id="title"

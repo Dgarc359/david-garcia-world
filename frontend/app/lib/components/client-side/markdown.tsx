@@ -5,7 +5,7 @@ import Markdown from "react-markdown";
 
 interface Props {
   payload: any;
-  styles?: string;
+  customStyles: string | undefined;
 }
 export function MarkdownC(props: Props) {
   console.log("markdown payload", props.payload);
@@ -13,5 +13,5 @@ export function MarkdownC(props: Props) {
   if (!props.payload) {
     return <div> Waiting un undefined props </div>;
   }
-  return <Markdown className={`${style.reactMarkDown} ${props.styles ?? ""}`}>{props.payload}</Markdown>;
+  return <Markdown className={`${style.reactMarkDown} ${props.customStyles ?? ""}`}>{props.payload}</Markdown>;
 }
