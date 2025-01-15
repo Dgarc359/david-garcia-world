@@ -22,7 +22,7 @@ function HomeUi() {
             Software engineer
           </p>
         </div>
-        <div className="md:flex flex-row md:justify-center gap-10 mx-10 mt-10">
+        <div className="flex flex-row justify-center gap-10 mx-10 mt-10">
           <Link href={"/projects"} as={"/projects"}>
             <div className="relative flex justify-center items-end border-gray-300 bg-white hover:shadow-lg border rounded-lg w-[150px] h-[150px]">
               <p className="opacity-75 pb-3 font-semibold text-lg select-none align-baseline">
