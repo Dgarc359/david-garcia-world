@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  productionBrowserSourceMaps: true,
+  // productionBrowserSourceMaps: true,
   serverRuntimeConfig: {
       PROJECT_ROOT: __dirname
   },
