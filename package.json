@@ -9,7 +9,8 @@
     "deploy": "yarn build && yarn workspace backend deploy",
     "fmt:staged": "yarn pretty-quick --staged",
     "fmt": "yarn pretty-quick",
-    "test:frontend": "yarn workspace frontend test"
+    "test:frontend": "yarn workspace frontend test",
+    "serve:frontend": "yarn serve frontend/out"
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.3",
@@ -24,6 +25,7 @@
     "frontend"
   ],
   "dependencies": {
-    "prettier": "^3.0.3"
+    "prettier": "^3.0.3",
+    "serve": "^14.2.4"
   }
 }

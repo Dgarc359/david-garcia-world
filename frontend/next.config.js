@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // productionBrowserSourceMaps: true,
   serverRuntimeConfig: {
       PROJECT_ROOT: __dirname
   },
@@ -15,6 +16,7 @@ const nextConfig = {
       return new Date().getTime().toString();
     }
   },
+  trailingSlash: true,
 }
 
 module.exports = nextConfig

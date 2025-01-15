@@ -2,91 +2,61 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
-import { getRepoLanguages } from "@/app/lib/util";
+import {
+  getRepoLanguages,
+  useGenerallyAvailableRepositories,
+} from "@/app/lib/util";
 import { Hero, ProjectCard } from "@/app/lib/components";
 import { languages, Filter, Project } from "@/app/lib/types";
+import { ProjectComponent } from "../lib/components/client-side/project-component";
 
 export default function ProjectsPage() {
   const [filter, setFilter] = React.useState<Filter>({
     language: new Set(),
   });
-
-  const [projectsMap, setProjectsMap] = React.useState<Map<string, Project>>(
-    new Map([
-      [
-        "mini-rover",
-        {
-          account: "Dgarc359",
-          displayTitle: "Mini Rover",
-          description: "a small rover",
-          filterableMetadata: {
-            language: new Set(),
-          },
-          href: "/projects/mini-rover",
-          githubPayload: {},
-        },
-      ],
-      /*
-    ["eddington", {
-      account: "null-channel",
-      displayTitle: "Eddington",
-      description: "open source cloud docker lifecycle manager",
-      filterableMetadata: {
-        language: new Set(),
-      },
-      href: "/projects/eddington",
-      githubPayload: {}
-    }],
-    */
-    ["mastodon-post-feed", {
-      account: "Dgarc359",
-      displayTitle: "Mastodon Post Feed",
-      description: "A feed which displays all the replies to a given mastodon post (check mini rover page for a live demo!)",
-      filterableMetadata: {
-        language: new Set(),
-      },
-      //href: "/projects/mastodon-post-feed",
-      href: "http://blog.nameofthemist.com/mastodon-post-feed",
-      githubPayload: {}
-    }],
-["todowheel", {
-      account: "Dgarc359",
-      displayTitle: "Todowheel",
-      description: "Get a random todo based on different parameters",
-      filterableMetadata: {
-        language: new Set(),
-      },
-      //href: "/projects/mastodon-post-feed",
-      href: "http://blog.nameofthemist.com/todowheel",
-      githubPayload: {}
-    }]
-
-  ]))
-
-
-  React.useEffect(() => {
-    [...projectsMap.entries()].forEach(async ([repo, project]) => {
-      const res = await getRepoLanguages(project.account, repo);
-      console.log(JSON.stringify(res));
-      const langSet = project.filterableMetadata.language;
-      Object.keys(res).forEach((key: any) => {
-        console.log("key", key);
-        langSet.add(key);
-      });
-
-      setProjectsMap((state) => {
-        const newState = new Map(state.entries());
-        if (!newState.get(repo)) return state;
-        const repoFromMap = newState.get(repo);
-        repoFromMap!.filterableMetadata.language = langSet;
-        repoFromMap!.githubPayload = res;
-        return newState;
-      });
-    });
-  }, []);
-
+  const [focusedProject, setFocusedProject] = React.useState<string>(
+    undefined!,
+  );
   const [languageVisibility, setLanguageVisibility] =
     React.useState<boolean>(false);
+
+  const {
+    data: projectsMap,
+    error,
+    isLoading,
+  } = useGenerallyAvailableRepositories("Dgarc359");
+
+  if (focusedProject) {
+    return (
+      <div
+        id="project-root"
+        className={"h-screen w-screen flex-col"}
+        onKeyDown={(e) => {
+          console.log(e.code);
+          if (e.code === "Escape") {
+            console.log("pressed escape");
+          }
+        }}
+      >
+        <Hero topLayerText="PROJ-" bottomLayerText="ECTS" color="bg-lime-400" />
+        <div className={'flex justify-center'}>
+          <button 
+            // className={'bg-white p-3 rounded-md text-black hover:shadow-md'} 
+            className="hover:bg-slate-200 px-4 py-2 rounded-2xl w-auto font-sans font-semibold text-lg cursor-pointer select-none"
+            onClick={() => { setFocusedProject(undefined!) }}>Back</button> 
+        </div>
+        <ProjectComponent projectName={focusedProject} />
+      </div>
+    );
+  }
+
+  console.log("returned from hook", projectsMap);
+  if (isLoading || !projectsMap) {
+    return <div> loading </div>;
+  }
+  if (error) {
+    return <div> an error occured! </div>;
+  }
 
   return (
     <div
@@ -101,6 +71,7 @@ export default function ProjectsPage() {
       }}
     >
       <Hero topLayerText="PROJ-" bottomLayerText="ECTS" color="bg-lime-400" />
+
       <div id="filters-section">
         <div>
           <div className="flex justify-center">
@@ -166,8 +137,8 @@ export default function ProjectsPage() {
           </div>
         )}
       </div>
-      <div id="projects" className="">
-        <div className="flex justify-center gap-4 mt-2 font-bold text-4xl">
+      <div id="projects" className="flex justify-center">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-2 font-bold text-4xl">
           {[...projectsMap.entries()].map(([repo, project]) => {
             if (
               // no filter exists no need to see if we want to display the project or not.
@@ -178,11 +149,17 @@ export default function ProjectsPage() {
             ) {
               return (
                 <ProjectCard
-                  key={project.displayTitle + project.githubPayload}
+                  key={project.displayTitle}
                   href={project.href}
                   displayTitle={project.displayTitle}
                   description={project.description}
+                  language={
+                    Array.from(
+                      project.filterableMetadata.language.values(),
+                    )[0] as any
+                  }
                   githubPayload={project.githubPayload}
+                  setFocusedProject={setFocusedProject}
                 />
               );
             }

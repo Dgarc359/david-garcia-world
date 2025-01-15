@@ -53,6 +53,11 @@ export class BackendStack extends cdk.Stack {
 
     new cdk.CfnOutput(this, 'Certificate', { value: certificate.certificateArn });
     
+    const routingFunction = new cdk.aws_cloudfront.Function(this,
+      `${props.stage}-${props.stackName}-routing-function`, {
+        code: cdk.aws_cloudfront.FunctionCode.fromFile({ filePath: 'src/routing-for-next.js'}),
+      })
+
     // CloudFront distribution
     const distribution = new cdk.aws_cloudfront.Distribution(this, 'SiteDistribution', {
       certificate: certificate,
@@ -72,6 +77,10 @@ export class BackendStack extends cdk.Stack {
         compress: true,
         allowedMethods: cdk.aws_cloudfront.AllowedMethods.ALLOW_ALL,
         viewerProtocolPolicy: cdk.aws_cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+        functionAssociations: [{
+          function: routingFunction,
+          eventType: cdk.aws_cloudfront.FunctionEventType.VIEWER_REQUEST,
+        }],
       },
     })
 
