@@ -34,7 +34,10 @@ export function ProjectCard(props: Omit<Project, "filterableMetadata" | "account
     <button onClick={() => {
       props.setFocusedProject(props.href)
     }}>
-    <div className="flex flex-col justify-between border-gray-300 hover:shadow-lg m-2 p-2 border rounded-md w-auto sm:min-w-[340px] sm:max-w-[340px] h-auto sm:min-h-[300px]">
+    <div className={
+      "flex flex-col justify-between border-gray-300 hover:shadow-lg m-2 p-2 border rounded-md w-auto h-auto"
+      + "min-w-[340px] max-w-[340px] md:min-h-[300px]"
+      }>
 
       <div id="title"
         className="flex justify-center p-2 font-bold text-center">

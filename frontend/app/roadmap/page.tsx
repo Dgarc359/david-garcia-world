@@ -2,7 +2,7 @@ import { Hero, Milestones} from "@/app/lib/components";
 
 export default function RoadmapPage() {
   return (
-    <div id="roadmap-root" className="flex-col w-screen h-screen">
+    <div id="roadmap-root" className="flex-col w-full h-screen">
       <Hero
         topLayerText="road"
         bottomLayerText="map"
@@ -10,7 +10,6 @@ export default function RoadmapPage() {
       />
       <div className="items-center w-full">
         <Milestones containerStyle="py-10 flex justify-center cursor-default select-none" />
-        H
       </div>
     </div>
   );
