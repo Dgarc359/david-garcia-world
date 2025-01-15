@@ -3,10 +3,10 @@ import { MarkdownC } from "@/app/lib/components/client-side";
 import { usePathname } from "next/navigation";
 import { useRepositoryReadme } from "@/app/lib/util";
 
-export default function ProjectsPage() {
+export default function Page() {
   console.log("loading projects page");
 
-  return <div>Hello WORLD</div>
+  // return <div>Hello WORLD</div>
 
   // const pathName = usePathname()
   //   .split("/")

@@ -22,14 +22,18 @@ const determineLanguagePercents = (githubPayload: {
 }
 
 interface Props {
-    language: string
+    language: string,
+    setFocusedProject: React.Dispatch<React.SetStateAction<string>>
 }
 export function ProjectCard(props: Omit<Project, "filterableMetadata" | "account"> & Props) {
   const languagePercents = determineLanguagePercents(props.githubPayload);
   console.log("project card got href", props.href)
 
   return(
-    <Link href={`/projects/${props.href}`} prefetch={false}>
+    // <Link href={`/projects/${props.href}`} as={`/projects/${props.href}`} prefetch={false}>
+    <button onClick={() => {
+      props.setFocusedProject(props.href)
+    }}>
     <div className="flex flex-col justify-between border-gray-300 hover:shadow-lg m-2 p-2 border rounded-md w-auto sm:min-w-[340px] sm:max-w-[340px] h-auto sm:min-h-[300px]">
 
       <div id="title"
@@ -50,6 +54,7 @@ export function ProjectCard(props: Omit<Project, "filterableMetadata" | "account
           }]
       }/>
     </div>
-    </Link>
+    </button>
+    // </Link>
   )
 }

@@ -1,24 +1,62 @@
-"use client"
+"use client";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
-import { getRepoLanguages, useGenerallyAvailableRepositories } from "@/app/lib/util";
+import {
+  getRepoLanguages,
+  useGenerallyAvailableRepositories,
+} from "@/app/lib/util";
 import { Hero, ProjectCard } from "@/app/lib/components";
 import { languages, Filter, Project } from "@/app/lib/types";
+import { ProjectComponent } from "../lib/components/client-side/project-component";
 
 export default function ProjectsPage() {
   const [filter, setFilter] = React.useState<Filter>({
     language: new Set(),
   });
- const [languageVisibility, setLanguageVisibility] =
+  const [focusedProject, setFocusedProject] = React.useState<string>(
+    undefined!,
+  );
+  const [languageVisibility, setLanguageVisibility] =
     React.useState<boolean>(false);
 
+  const {
+    data: projectsMap,
+    error,
+    isLoading,
+  } = useGenerallyAvailableRepositories("Dgarc359");
 
-  const {data: projectsMap, error, isLoading } = useGenerallyAvailableRepositories("Dgarc359");
+  if (focusedProject) {
+    return (
+      <div
+        id="project-root"
+        className={"h-screen w-screen flex-col"}
+        onKeyDown={(e) => {
+          console.log(e.code);
+          if (e.code === "Escape") {
+            console.log("pressed escape");
+          }
+        }}
+      >
+        <Hero topLayerText="PROJ-" bottomLayerText="ECTS" color="bg-lime-400" />
+        <div className={'flex justify-center'}>
+          <button 
+            // className={'bg-white p-3 rounded-md text-black hover:shadow-md'} 
+            className="hover:bg-slate-200 px-4 py-2 rounded-2xl w-auto font-sans font-semibold text-lg cursor-pointer select-none"
+            onClick={() => { setFocusedProject(undefined!) }}>Back</button> 
+        </div>
+        <ProjectComponent projectName={focusedProject} />
+      </div>
+    );
+  }
+
   console.log("returned from hook", projectsMap);
-  if(isLoading || !projectsMap) { return <div> loading </div> }
-  if(error) { return <div> an error occured! </div> }
-
+  if (isLoading || !projectsMap) {
+    return <div> loading </div>;
+  }
+  if (error) {
+    return <div> an error occured! </div>;
+  }
 
   return (
     <div
@@ -33,6 +71,7 @@ export default function ProjectsPage() {
       }}
     >
       <Hero topLayerText="PROJ-" bottomLayerText="ECTS" color="bg-lime-400" />
+
       <div id="filters-section">
         <div>
           <div className="flex justify-center">
@@ -114,8 +153,13 @@ export default function ProjectsPage() {
                   href={project.href}
                   displayTitle={project.displayTitle}
                   description={project.description}
-                  language={Array.from(project.filterableMetadata.language.values())[0] as any}
+                  language={
+                    Array.from(
+                      project.filterableMetadata.language.values(),
+                    )[0] as any
+                  }
                   githubPayload={project.githubPayload}
+                  setFocusedProject={setFocusedProject}
                 />
               );
             }
