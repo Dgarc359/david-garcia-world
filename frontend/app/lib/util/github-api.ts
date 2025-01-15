@@ -76,7 +76,7 @@ export function useGenerallyAvailableRepositories(account: string): {
   error: any;
   data: undefined | Project[];
 } {
-  const url = `https://api.github.com/users/${account}/repos`;
+  const url = `https://api.github.com/users/${account}/repos?per_page=100`;
   const { data, error, isLoading } = useSWR(url, getFetcher, SWRConfig);
   console.log("swr ga data", data);
   if (isLoading || error) {
